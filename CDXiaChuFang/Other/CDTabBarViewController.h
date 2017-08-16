@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CDTabBarViewController.h
 //  CDXiaChuFang
 //
 //  Created by chendi on 2017/8/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface CDTabBarViewController : UITabBarController
 
 @end
-
