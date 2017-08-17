@@ -12,6 +12,7 @@
 		545176CA1F449948006523D6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 545176C91F449948006523D6 /* Info.plist */; };
 		545176CC1F44994F006523D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 545176CB1F44994F006523D6 /* Assets.xcassets */; };
 		545176D51F449A76006523D6 /* CDTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 545176D41F449A76006523D6 /* CDTabBarViewController.m */; };
+		545176D81F45E35F006523D6 /* CDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 545176D71F45E35F006523D6 /* CDNavigationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,8 @@
 		545176CB1F44994F006523D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		545176D31F449A76006523D6 /* CDTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTabBarViewController.h; sourceTree = "<group>"; };
 		545176D41F449A76006523D6 /* CDTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBarViewController.m; sourceTree = "<group>"; };
+		545176D61F45E35F006523D6 /* CDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNavigationViewController.h; sourceTree = "<group>"; };
+		545176D71F45E35F006523D6 /* CDNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNavigationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				545176C71F44991F006523D6 /* AppDelegate.m */,
 				545176D31F449A76006523D6 /* CDTabBarViewController.h */,
 				545176D41F449A76006523D6 /* CDTabBarViewController.m */,
+				545176D61F45E35F006523D6 /* CDNavigationViewController.h */,
+				545176D71F45E35F006523D6 /* CDNavigationViewController.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				545176C81F44991F006523D6 /* AppDelegate.m in Sources */,
+				545176D81F45E35F006523D6 /* CDNavigationViewController.m in Sources */,
 				545176AA1F4496BF006523D6 /* main.m in Sources */,
 				545176D51F449A76006523D6 /* CDTabBarViewController.m in Sources */,
 			);
@@ -336,6 +342,7 @@
 				545176BE1F4496BF006523D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

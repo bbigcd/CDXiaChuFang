@@ -7,7 +7,7 @@
 //
 
 #import "CDTabBarViewController.h"
-
+#import "CDNavigationViewController.h"
 @interface CDTabBarViewController ()
 
 @end
@@ -17,12 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIViewController *view = [[UIViewController alloc] init];
+    UIViewController *view = [[CDNavigationViewController alloc]initWithRootViewController:[[UIViewController alloc] init]];
     view.view.backgroundColor = [UIColor whiteColor];
     view.tabBarItem.title = @"test";
     [self addChildViewController:view];
     
-    UIViewController *view1 = [[UIViewController alloc] init];
+    UIViewController *view1 = [[CDNavigationViewController alloc]initWithRootViewController:[[UIViewController alloc] init]];
     view1.view.backgroundColor = [UIColor whiteColor];
     view1.tabBarItem.title = @"test1";
     [self addChildViewController:view1];
