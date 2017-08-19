@@ -13,6 +13,7 @@
 		545176CC1F44994F006523D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 545176CB1F44994F006523D6 /* Assets.xcassets */; };
 		545176D51F449A76006523D6 /* CDTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 545176D41F449A76006523D6 /* CDTabBarViewController.m */; };
 		545176D81F45E35F006523D6 /* CDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 545176D71F45E35F006523D6 /* CDNavigationViewController.m */; };
+		5478E8021F4865D200C344F1 /* CDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5478E8011F4865D200C344F1 /* CDMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		545176D41F449A76006523D6 /* CDTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBarViewController.m; sourceTree = "<group>"; };
 		545176D61F45E35F006523D6 /* CDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNavigationViewController.h; sourceTree = "<group>"; };
 		545176D71F45E35F006523D6 /* CDNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNavigationViewController.m; sourceTree = "<group>"; };
+		5478E8001F4865D200C344F1 /* CDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainViewController.h; sourceTree = "<group>"; };
+		5478E8011F4865D200C344F1 /* CDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,8 @@
 		545176C01F4497EE006523D6 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5478E8001F4865D200C344F1 /* CDMainViewController.h */,
+				5478E8011F4865D200C344F1 /* CDMainViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				545176C81F44991F006523D6 /* AppDelegate.m in Sources */,
+				5478E8021F4865D200C344F1 /* CDMainViewController.m in Sources */,
 				545176D81F45E35F006523D6 /* CDNavigationViewController.m in Sources */,
 				545176AA1F4496BF006523D6 /* main.m in Sources */,
 				545176D51F449A76006523D6 /* CDTabBarViewController.m in Sources */,
@@ -303,6 +309,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 7E2J7CUZTM;
 				INFOPLIST_FILE = CDXiaChuFang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -315,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 7E2J7CUZTM;
 				INFOPLIST_FILE = CDXiaChuFang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
