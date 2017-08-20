@@ -21,6 +21,7 @@
 /* Begin PBXFileReference section */
 		542B44401F49D14D004A38BB /* CDMainHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainHeadView.h; sourceTree = "<group>"; };
 		542B44411F49D14D004A38BB /* CDMainHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainHeadView.m; sourceTree = "<group>"; };
+		542B44441F49E804004A38BB /* CDXCFPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDXCFPrefixHeader.pch; sourceTree = "<group>"; };
 		544189681F49881B008F27CB /* CDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainViewController.h; sourceTree = "<group>"; };
 		544189691F49881B008F27CB /* CDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainViewController.m; sourceTree = "<group>"; };
 		545176A51F4496BF006523D6 /* CDXiaChuFang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CDXiaChuFang.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		542B44431F49E2A7004A38BB /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				542B44441F49E804004A38BB /* CDXCFPrefixHeader.pch */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		544189651F498806008F27CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +111,7 @@
 				545176C31F44988F006523D6 /* Message */,
 				545176C21F44988F006523D6 /* Me */,
 				545176C51F4498CC006523D6 /* Other */,
+				542B44431F49E2A7004A38BB /* Tools */,
 				545176A81F4496BF006523D6 /* Supporting Files */,
 			);
 			path = CDXiaChuFang;
@@ -423,6 +433,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 7E2J7CUZTM;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDXiaChuFang/Tools/CDXCFPrefixHeader.pch;
 				INFOPLIST_FILE = CDXiaChuFang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bbigcd.CDXiaChuFang;
@@ -437,6 +449,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 7E2J7CUZTM;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CDXiaChuFang/Tools/CDXCFPrefixHeader.pch;
 				INFOPLIST_FILE = CDXiaChuFang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bbigcd.CDXiaChuFang;
