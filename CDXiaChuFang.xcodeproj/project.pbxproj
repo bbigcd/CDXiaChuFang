@@ -15,6 +15,7 @@
 		545176CC1F44994F006523D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 545176CB1F44994F006523D6 /* Assets.xcassets */; };
 		545176D51F449A76006523D6 /* CDTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 545176D41F449A76006523D6 /* CDTabBarViewController.m */; };
 		545176D81F45E35F006523D6 /* CDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 545176D71F45E35F006523D6 /* CDNavigationViewController.m */; };
+		8D8206669FC602126A2FF224 /* libPods-CDXiaChuFang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD1440FC21846E47E25951D /* libPods-CDXiaChuFang.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,9 @@
 		545176D41F449A76006523D6 /* CDTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBarViewController.m; sourceTree = "<group>"; };
 		545176D61F45E35F006523D6 /* CDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNavigationViewController.h; sourceTree = "<group>"; };
 		545176D71F45E35F006523D6 /* CDNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNavigationViewController.m; sourceTree = "<group>"; };
+		6DD1440FC21846E47E25951D /* libPods-CDXiaChuFang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CDXiaChuFang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1C8AAAB2728D6AC638D525A /* Pods-CDXiaChuFang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDXiaChuFang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CDXiaChuFang/Pods-CDXiaChuFang.debug.xcconfig"; sourceTree = "<group>"; };
+		E0C750A88DE51948F05D8D8D /* Pods-CDXiaChuFang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDXiaChuFang.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDXiaChuFang/Pods-CDXiaChuFang.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D8206669FC602126A2FF224 /* libPods-CDXiaChuFang.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +80,8 @@
 			children = (
 				545176A71F4496BF006523D6 /* CDXiaChuFang */,
 				545176A61F4496BF006523D6 /* Products */,
+				E7C1F72075DBB80A58B0331E /* Pods */,
+				F267BB36F5412DD3ABF01828 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +168,23 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		E7C1F72075DBB80A58B0331E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C1C8AAAB2728D6AC638D525A /* Pods-CDXiaChuFang.debug.xcconfig */,
+				E0C750A88DE51948F05D8D8D /* Pods-CDXiaChuFang.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F267BB36F5412DD3ABF01828 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DD1440FC21846E47E25951D /* libPods-CDXiaChuFang.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 545176BC1F4496BF006523D6 /* Build configuration list for PBXNativeTarget "CDXiaChuFang" */;
 			buildPhases = (
+				0C2BED4F0B4A52B19A28D95C /* [CP] Check Pods Manifest.lock */,
 				545176A11F4496BF006523D6 /* Sources */,
 				545176A21F4496BF006523D6 /* Frameworks */,
 				545176A31F4496BF006523D6 /* Resources */,
+				467BDA00262E056186745325 /* [CP] Embed Pods Frameworks */,
+				C4638FD60AEBC673B59FA467 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,6 +254,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C2BED4F0B4A52B19A28D95C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CDXiaChuFang-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		467BDA00262E056186745325 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CDXiaChuFang/Pods-CDXiaChuFang-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4638FD60AEBC673B59FA467 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CDXiaChuFang/Pods-CDXiaChuFang-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CDXiaChuFang/Pods-CDXiaChuFang-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		545176A11F4496BF006523D6 /* Sources */ = {
@@ -337,6 +418,7 @@
 		};
 		545176BD1F4496BF006523D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1C8AAAB2728D6AC638D525A /* Pods-CDXiaChuFang.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -350,6 +432,7 @@
 		};
 		545176BE1F4496BF006523D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0C750A88DE51948F05D8D8D /* Pods-CDXiaChuFang.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
