@@ -16,6 +16,7 @@
 #ifdef __OBJC__ // 判断一下，之后OC文件才会导入下面的头文件
 
 #import <Masonry.h>
+#import <UIView+WebCache.h>
 
 #endif
 
