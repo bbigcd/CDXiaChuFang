@@ -50,6 +50,10 @@ static NSString *const MainTableID = @"cell";
 }
 
 #pragma mark - UITableViewDelegate -
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
 
 #pragma mark - UITableViewDataSource -
 
@@ -65,7 +69,7 @@ static NSString *const MainTableID = @"cell";
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MainTableID];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    cell.textLabel.text = @"ceshi";
+//    cell.textLabel.text = @"ceshi";
     return cell;
 }
 
