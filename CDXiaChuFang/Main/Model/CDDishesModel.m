@@ -11,3 +11,7 @@
 @implementation CDDishesModel
 
 @end
+
+@implementation CDDishesArrModel
+
+@end

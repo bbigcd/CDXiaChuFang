@@ -8,7 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class CDDishesArrModel;
+
 @interface CDDishesModel : NSObject
+
+@property (nonatomic, copy) NSArray<CDDishesArrModel *> *dishes;
+
+@end
+
+
+@interface CDDishesArrModel : NSObject
 
 @property (nonatomic, copy) NSString *thumbnail_280;
 
