@@ -12,4 +12,5 @@ target 'CDXiaChuFang' do
   pod 'SDWebImage'
   pod 'FMDB'
   pod ‘MJRefresh’
+  pod ‘YYModel’
 end
