@@ -8,7 +8,15 @@
 
 #import "CDEventsModel.h"
 #import "CDDishesModel.h"
+#import <NSObject+YYModel.h>
 
 @implementation CDEventsModel
+
++ (NSDictionary *)modelCustomPropertyMapper
+{
+    return @{
+             @"kId":@"id"
+             };
+}
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "CDNavsModel.h"
+#import <NSObject+YYModel.h>
 
 @implementation CDNavsModel
 

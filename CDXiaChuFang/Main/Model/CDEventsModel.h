@@ -14,7 +14,7 @@
 
 @property (nonatomic, copy) NSString *n_dishes;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *id;
+@property (nonatomic, copy) NSString *kId;
 @property (nonatomic, copy) NSString *customization;
 @property (nonatomic, copy) NSArray<CDDishesModel *> *dishes;
 
