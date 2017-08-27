@@ -19,4 +19,11 @@
              };
 }
 
++ (NSDictionary *)modelContainerPropertyGenericClass
+{
+    return @{
+             @"dishes":[CDDishesModel class]
+             };
+}
+
 @end
