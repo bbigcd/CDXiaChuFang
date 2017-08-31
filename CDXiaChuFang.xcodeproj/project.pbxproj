@@ -11,6 +11,7 @@
 		542B44471F4B31BA004A38BB /* CDHeadMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44461F4B31BA004A38BB /* CDHeadMenuCell.m */; };
 		542B445A1F4F26E9004A38BB /* CDMainDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44591F4F26E9004A38BB /* CDMainDataSource.m */; };
 		542F63701F58554400D5DE2A /* CDMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542F636F1F58554400D5DE2A /* CDMainModel.m */; };
+		542F63721F58651600D5DE2A /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 542F63711F58651600D5DE2A /* Foundation+Log.m */; };
 		5441896A1F49881B008F27CB /* CDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 544189691F49881B008F27CB /* CDMainViewController.m */; };
 		545176AA1F4496BF006523D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 545176A91F4496BF006523D6 /* main.m */; };
 		545176C81F44991F006523D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 545176C71F44991F006523D6 /* AppDelegate.m */; };
@@ -31,6 +32,7 @@
 		542B44591F4F26E9004A38BB /* CDMainDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainDataSource.m; sourceTree = "<group>"; };
 		542F636E1F58554400D5DE2A /* CDMainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainModel.h; sourceTree = "<group>"; };
 		542F636F1F58554400D5DE2A /* CDMainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainModel.m; sourceTree = "<group>"; };
+		542F63711F58651600D5DE2A /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		544189681F49881B008F27CB /* CDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainViewController.h; sourceTree = "<group>"; };
 		544189691F49881B008F27CB /* CDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainViewController.m; sourceTree = "<group>"; };
 		545176A51F4496BF006523D6 /* CDXiaChuFang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CDXiaChuFang.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,7 @@
 		542B44431F49E2A7004A38BB /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				542F63711F58651600D5DE2A /* Foundation+Log.m */,
 				542B44441F49E804004A38BB /* CDXCFPrefixHeader.pch */,
 			);
 			path = Tools;
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				542F63701F58554400D5DE2A /* CDMainModel.m in Sources */,
+				542F63721F58651600D5DE2A /* Foundation+Log.m in Sources */,
 				542B445A1F4F26E9004A38BB /* CDMainDataSource.m in Sources */,
 				545176C81F44991F006523D6 /* AppDelegate.m in Sources */,
 				5441896A1F49881B008F27CB /* CDMainViewController.m in Sources */,

@@ -10,7 +10,9 @@
 #import <NSObject+YYModel.h>
 
 @implementation CDMainModel
-
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"content" : @"Content"};
+}
 @end
 
 @implementation Content
@@ -50,7 +52,7 @@
 
 + (NSDictionary *)modelContainerPropertyGenericClass
 {
-    return @{@"customization":[Navs class]};
+    return @{@"customization":@"Customization"};
 }
 
 @end
