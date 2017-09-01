@@ -44,8 +44,12 @@ static NSString *const MainTableID = @"cell";
     self.view.backgroundColor = [UIColor whiteColor];
     self.model = [[CDMainModel alloc] init];
     [self tableView];
-    [self network];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self network];
+        [self.tableView.mj_header endRefreshing];
+    }];
     
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)network
