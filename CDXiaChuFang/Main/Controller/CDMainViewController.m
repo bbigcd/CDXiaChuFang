@@ -10,13 +10,16 @@
 #import "CDMainHeadView.h"
 #import "CDMainModel.h"
 #import <NSObject+YYModel.h>
+#import "CDMainDataSource.h"
+#import "CDHeadMenuCell.h"
+#import "CDHeadMenuCell+ConfigureForMemuCell.h"
 
 @interface CDMainViewController ()
 <UITableViewDelegate,UITableViewDataSource>
 
-
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) CDMainModel *model;
+@property (nonatomic, strong) CDMainDataSource *mainDataSource;
 
 @end
 
@@ -44,12 +47,26 @@ static NSString *const MainTableID = @"cell";
     self.view.backgroundColor = [UIColor whiteColor];
     self.model = [[CDMainModel alloc] init];
     [self tableView];
+    [self setupTableView];
+    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self network];
         [self.tableView.mj_header endRefreshing];
     }];
     
     [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)setupTableView
+{
+    TableViewCellConfigureBlock configureCell = ^(CDHeadMenuCell *cell, CDMainModel *model) {
+        [cell configureForNavs:model.content.navs];
+    };
+    self.mainDataSource = [[CDMainDataSource alloc] initWithItems:_model.content.navs
+                                                   cellIdentifier:MainTableID
+                                               configureCellBlock:configureCell];
+    self.tableView.dataSource = self.mainDataSource;
+    
 }
 
 - (void)network
