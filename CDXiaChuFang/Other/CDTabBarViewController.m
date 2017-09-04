@@ -9,6 +9,7 @@
 #import "CDTabBarViewController.h"
 #import "CDNavigationViewController.h"
 #import "CDMainViewController.h"
+#import "CDMeViewController.h"
 @interface CDTabBarViewController ()
 
 @end
@@ -43,7 +44,7 @@
     [self setupChildViewController:[UIViewController new] title:@"市集" image:@"tabBDeselected_25x25_" selectedImage:@"tabBSelected_25x25_"];
     [self setupChildViewController:[UIViewController new] title:@"收藏" image:@"tabCDeselected_25x25_" selectedImage:@"tabCSelected_25x25_"];
     [self setupChildViewController:[UIViewController new] title:@"信箱" image:@"tabDDeselected_25x25_" selectedImage:@"tabDSelected_25x25_"];
-    [self setupChildViewController:[UIViewController new] title:@"我" image:@"tabEDeselected_25x25_" selectedImage:@"tabESelected_25x25_"];
+    [self setupChildViewController:[CDMeViewController new] title:@"我" image:@"tabEDeselected_25x25_" selectedImage:@"tabESelected_25x25_"];
 }
 
 /**

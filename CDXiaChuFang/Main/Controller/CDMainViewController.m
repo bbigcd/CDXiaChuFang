@@ -47,10 +47,10 @@ static NSString *const MainTableID = @"cell";
     self.view.backgroundColor = [UIColor whiteColor];
     self.model = [[CDMainModel alloc] init];
     [self tableView];
-    [self setupTableView];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self network];
+        [self setupTableView];
         [self.tableView.mj_header endRefreshing];
     }];
     
@@ -59,8 +59,8 @@ static NSString *const MainTableID = @"cell";
 
 - (void)setupTableView
 {
-    TableViewCellConfigureBlock configureCell = ^(CDHeadMenuCell *cell, CDMainModel *model) {
-        [cell configureForNavs:model.content.navs];
+    TableViewCellConfigureBlock configureCell = ^(CDHeadMenuCell *cell, NSArray<Navs *> *navs) {
+        [cell configureForNavs:navs];
     };
     self.mainDataSource = [[CDMainDataSource alloc] initWithItems:_model.content.navs
                                                    cellIdentifier:MainTableID
