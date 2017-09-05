@@ -14,6 +14,14 @@
 
 @implementation CDNavigationViewController
 
++ (void)initialize{
+    // 当导航栏用在CDNavigationViewController中, appearance设置才会生效
+    //    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedIn:[self class], nil];
+    // 属性带有appearance的对象，可以全局设置统一格式，而上述方法可以全局的同时局部差异。
+    UINavigationBar *bar = [UINavigationBar appearance];
+    [bar setTranslucent:NO];//全局不透明
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

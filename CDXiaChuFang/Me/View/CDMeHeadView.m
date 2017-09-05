@@ -43,11 +43,11 @@
 {
     self.backgroundColor = [UIColor grayColor];
     [self nameLabel];
-    [self addSubview:self.timeJoinBtn];
-    [self addSubview:self.headImgView];
-    [self addSubview:self.followBtn];
-    [self addSubview:self.fansBtn];
-    [self addSubview:self.editProfileBtn];
+    [self timeJoinBtn];
+    [self headImgView];
+    [self followBtn];
+    [self fansBtn];
+    [self editProfileBtn];
 }
 
 #pragma mark - lazy load -
@@ -58,10 +58,11 @@
         _nameLabel = [[UILabel alloc] init];
         _nameLabel.text = @"bbigcd";
         _nameLabel.font = [UIFont systemFontOfSize:22];
-        [self addSubview:self.nameLabel];
+        [self addSubview:_nameLabel];
         [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(@30);
             make.left.equalTo(@20);
+            make.right.lessThanOrEqualTo(@(-120));
         }];
     }
     return _nameLabel;
@@ -72,9 +73,16 @@
     if (!_timeJoinBtn) {
         _timeJoinBtn = ({
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            
+            [btn setTitle:@"2016 加入" forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:12];
+            [btn.titleLabel setTextColor:[UIColor blackColor]];
             btn;
         });
+        [self addSubview:_timeJoinBtn];
+        [_timeJoinBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_nameLabel.mas_bottom).offset(35);
+            make.left.equalTo(@20);
+        }];
     }
     return _timeJoinBtn;
 }
@@ -84,7 +92,7 @@
     if (!_followBtn) {
         _followBtn = ({
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            
+//            [btn setTitle:@"2016 加入" forState:UIControlStateNormal];
             btn;
         });
     }
@@ -96,7 +104,7 @@
     if (!_fansBtn) {
         _fansBtn = ({
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            
+//            [btn setTitle:@"2016 加入" forState:UIControlStateNormal];
             btn;
         });
     }
@@ -119,7 +127,16 @@
 {
     if (!_headImgView) {
         _headImgView = [[UIImageView alloc] init];
-        [_headImgView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:nil];
+        [self addSubview:_headImgView];
+        [_headImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(@(-15));
+            make.top.equalTo(@20);
+            make.size.mas_offset(CGSizeMake(100, 100));
+        }];
+        _headImgView.backgroundColor = [UIColor whiteColor];
+        _headImgView.layer.cornerRadius = 50.0f;
+        _headImgView.layer.masksToBounds = YES;
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"feedsNotLogin_320x240_"]];
     }
     return _headImgView;
 }
