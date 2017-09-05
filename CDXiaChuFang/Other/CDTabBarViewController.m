@@ -40,11 +40,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setupChildViewController:[CDMainViewController new] title:@"下厨房" image:@"tabADeselected_25x25_" selectedImage:@"tabASelected_25x25_"];
+    [self setupChildViewController:[CDMeViewController new] title:@"下厨房" image:@"tabADeselected_25x25_" selectedImage:@"tabASelected_25x25_"];
     [self setupChildViewController:[UIViewController new] title:@"市集" image:@"tabBDeselected_25x25_" selectedImage:@"tabBSelected_25x25_"];
     [self setupChildViewController:[UIViewController new] title:@"收藏" image:@"tabCDeselected_25x25_" selectedImage:@"tabCSelected_25x25_"];
     [self setupChildViewController:[UIViewController new] title:@"信箱" image:@"tabDDeselected_25x25_" selectedImage:@"tabDSelected_25x25_"];
-    [self setupChildViewController:[CDMeViewController new] title:@"我" image:@"tabEDeselected_25x25_" selectedImage:@"tabESelected_25x25_"];
+    [self setupChildViewController:[CDMainViewController new] title:@"我" image:@"tabEDeselected_25x25_" selectedImage:@"tabESelected_25x25_"];
 }
 
 /**

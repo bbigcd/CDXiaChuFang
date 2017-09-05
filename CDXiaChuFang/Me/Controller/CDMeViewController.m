@@ -7,33 +7,66 @@
 //
 
 #import "CDMeViewController.h"
+#import "CDMeHeadView.h"
 
-@interface CDMeViewController ()
+@interface CDMeViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
 @implementation CDMeViewController
 
+static NSString *const MeTableID = @"cell";
+
+- (UITableView *)tableView
+{
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        [_tableView setDelegate:self];
+        [_tableView setDataSource:self];
+        [_tableView setTableHeaderView:[[CDMeHeadView alloc] initWithFrame:(CGRect){0, 0, CDScreenW, 350}]];
+        [_tableView setTableFooterView:[[UIView alloc] init]];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MeTableID];
+        [self.view addSubview:_tableView];
+    }
+    return _tableView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"我";
-    // Do any additional setup after loading the view.
+    [self tableView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UITableViewDelegate -
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 100;
+//}
+
+#pragma mark - UITableViewDataSource -
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MeTableID forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MeTableID];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    //    cell.textLabel.text = @"ceshi";
+    return cell;
+}
 
 @end
