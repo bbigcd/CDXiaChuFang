@@ -14,6 +14,7 @@
 		542F63721F58651600D5DE2A /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 542F63711F58651600D5DE2A /* Foundation+Log.m */; };
 		5433901B1F5DA21300E488E1 /* CDMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433901A1F5DA21300E488E1 /* CDMeViewController.m */; };
 		5433901E1F5DA79B00E488E1 /* CDMeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433901D1F5DA79B00E488E1 /* CDMeHeadView.m */; };
+		5435A7471F604AA200780AD6 /* UIColor+CDColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435A7461F604AA200780AD6 /* UIColor+CDColor.m */; };
 		5441896A1F49881B008F27CB /* CDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 544189691F49881B008F27CB /* CDMainViewController.m */; };
 		54448F9A1F5AEDBE002EAA5C /* CDHeadMenuCell+ConfigureForMemuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54448F991F5AEDBE002EAA5C /* CDHeadMenuCell+ConfigureForMemuCell.m */; };
 		545176AA1F4496BF006523D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 545176A91F4496BF006523D6 /* main.m */; };
@@ -39,6 +40,8 @@
 		5433901A1F5DA21300E488E1 /* CDMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMeViewController.m; sourceTree = "<group>"; };
 		5433901C1F5DA79B00E488E1 /* CDMeHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMeHeadView.h; sourceTree = "<group>"; };
 		5433901D1F5DA79B00E488E1 /* CDMeHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMeHeadView.m; sourceTree = "<group>"; };
+		5435A7451F604AA200780AD6 /* UIColor+CDColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CDColor.h"; sourceTree = "<group>"; };
+		5435A7461F604AA200780AD6 /* UIColor+CDColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CDColor.m"; sourceTree = "<group>"; };
 		544189681F49881B008F27CB /* CDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainViewController.h; sourceTree = "<group>"; };
 		544189691F49881B008F27CB /* CDMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainViewController.m; sourceTree = "<group>"; };
 		54448F981F5AEDBE002EAA5C /* CDHeadMenuCell+ConfigureForMemuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CDHeadMenuCell+ConfigureForMemuCell.h"; sourceTree = "<group>"; };
@@ -75,6 +78,8 @@
 			children = (
 				542F63711F58651600D5DE2A /* Foundation+Log.m */,
 				542B44441F49E804004A38BB /* CDXCFPrefixHeader.pch */,
+				5435A7451F604AA200780AD6 /* UIColor+CDColor.h */,
+				5435A7461F604AA200780AD6 /* UIColor+CDColor.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 				545176AA1F4496BF006523D6 /* main.m in Sources */,
 				542B44421F49D14D004A38BB /* CDMainHeadView.m in Sources */,
 				545176D51F449A76006523D6 /* CDTabBarViewController.m in Sources */,
+				5435A7471F604AA200780AD6 /* UIColor+CDColor.m in Sources */,
 				54448F9A1F5AEDBE002EAA5C /* CDHeadMenuCell+ConfigureForMemuCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

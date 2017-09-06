@@ -22,9 +22,19 @@
     [bar setTranslucent:NO];//全局不透明
 }
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[self.navigationController.navigationBar.subviews objectAtIndex:0] setAlpha:0];
 }
 
 - (void)didReceiveMemoryWarning {

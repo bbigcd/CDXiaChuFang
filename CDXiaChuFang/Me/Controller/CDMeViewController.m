@@ -9,6 +9,7 @@
 #import "CDMeViewController.h"
 #import "CDMeHeadView.h"
 
+
 @interface CDMeViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -27,6 +28,7 @@ static NSString *const MeTableID = @"cell";
         [_tableView setDataSource:self];
         [_tableView setTableHeaderView:[[CDMeHeadView alloc] initWithFrame:(CGRect){0, 0, CDScreenW, 350}]];
         [_tableView setTableFooterView:[[UIView alloc] init]];
+        [_tableView setBackgroundColor:[UIColor cd_selfViewBackgroundColor]];
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MeTableID];
         [self.view addSubview:_tableView];
     }
@@ -35,8 +37,10 @@ static NSString *const MeTableID = @"cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor cd_selfViewBackgroundColor];
     self.title = @"我";
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     [self tableView];
 }
 

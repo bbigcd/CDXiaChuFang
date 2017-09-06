@@ -41,7 +41,7 @@
 
 - (void)creatUI
 {
-    self.backgroundColor = [UIColor grayColor];
+    self.backgroundColor = [UIColor whiteColor];
     [self nameLabel];
     [self timeJoinBtn];
     [self headImgView];
@@ -74,8 +74,8 @@
         _timeJoinBtn = ({
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             [btn setTitle:@"2016 加入" forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
-            [btn.titleLabel setTextColor:[UIColor blackColor]];
             btn;
         });
         [self addSubview:_timeJoinBtn];
@@ -116,9 +116,28 @@
     if (!_editProfileBtn) {
         _editProfileBtn = ({
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            
+            [btn setTitle:@"编辑个人资料" forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor cd_textColor] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:16];
             btn;
         });
+        [self addSubview:_editProfileBtn];
+        [_editProfileBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_headImgView.mas_bottom).offset(33);
+            make.right.equalTo(@(-15));
+            make.width.equalTo(_headImgView.mas_width);
+        }];
+        UIView *lineView = ({
+            UIView *view = [[UIView alloc] init];
+            view.backgroundColor = [UIColor cd_lineViewColor];
+            view;
+        });
+        [self addSubview:lineView];
+        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_editProfileBtn.mas_bottom).offset(20);
+            make.left.right.equalTo(self);
+            make.size.mas_offset(CGSizeMake(CDScreenW, 1));
+        }];
     }
     return _editProfileBtn;
 }
