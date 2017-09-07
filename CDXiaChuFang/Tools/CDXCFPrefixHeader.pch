@@ -20,6 +20,7 @@
 #import <MJRefresh.h>
 #import <Masonry.h>
 #import "UIColor+CDColor.h"
+#import "UIView+CDFrame.h"
 
 #define CDScreenW [UIScreen mainScreen].bounds.size.width
 #define CDScreenH [UIScreen mainScreen].bounds.size.height

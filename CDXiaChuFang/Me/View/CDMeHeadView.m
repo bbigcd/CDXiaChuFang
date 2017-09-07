@@ -8,6 +8,7 @@
 
 #import "CDMeHeadView.h"
 #import <UIImageView+WebCache.h>
+#import "CDVerticalButton.h"
 
 @interface CDMeHeadView()
 
@@ -16,8 +17,15 @@
 @property (nonatomic, strong) UIButton *followBtn;
 @property (nonatomic, strong) UIButton *fansBtn;
 @property (nonatomic, strong) UIButton *editProfileBtn;
+@property (nonatomic, strong) CDVerticalButton *myFavoriteBtn;
+@property (nonatomic, strong) CDVerticalButton *orderBtn;
+@property (nonatomic, strong) CDVerticalButton *onSaleBtn;
+@property (nonatomic, strong) CDVerticalButton *statisticsBtn;
+@property (nonatomic, strong) UIButton *cookbookBtn;
+@property (nonatomic, strong) UIButton *productionBtn;
 @property (nonatomic, strong) UIImageView *headImgView;
-
+@property (nonatomic, strong) UIView *toplineView;
+@property (nonatomic, strong) UIView *bottomlineView;
 @end
 
 
@@ -45,12 +53,18 @@
     [self nameLabel];
     [self timeJoinBtn];
     [self headImgView];
+    [self editProfileBtn];
     [self followBtn];
     [self fansBtn];
-    [self editProfileBtn];
+    [self myFavoriteBtn];
+    [self orderBtn];
+    [self onSaleBtn];
+    [self statisticsBtn];
+    [self cookbookBtn];
+    [self productionBtn];
 }
 
-#pragma mark - lazy load -
+#pragma mark - Lazy Load -
 
 - (UILabel *)nameLabel
 {
@@ -87,60 +101,6 @@
     return _timeJoinBtn;
 }
 
-- (UIButton *)followBtn
-{
-    if (!_followBtn) {
-        _followBtn = ({
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//            [btn setTitle:@"2016 加入" forState:UIControlStateNormal];
-            btn;
-        });
-    }
-    return _followBtn;
-}
-
-- (UIButton *)fansBtn
-{
-    if (!_fansBtn) {
-        _fansBtn = ({
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//            [btn setTitle:@"2016 加入" forState:UIControlStateNormal];
-            btn;
-        });
-    }
-    return _fansBtn;
-}
-
-- (UIButton *)editProfileBtn
-{
-    if (!_editProfileBtn) {
-        _editProfileBtn = ({
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [btn setTitle:@"编辑个人资料" forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor cd_textColor] forState:UIControlStateNormal];
-            btn.titleLabel.font = [UIFont systemFontOfSize:16];
-            btn;
-        });
-        [self addSubview:_editProfileBtn];
-        [_editProfileBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_headImgView.mas_bottom).offset(33);
-            make.right.equalTo(@(-15));
-            make.width.equalTo(_headImgView.mas_width);
-        }];
-        UIView *lineView = ({
-            UIView *view = [[UIView alloc] init];
-            view.backgroundColor = [UIColor cd_lineViewColor];
-            view;
-        });
-        [self addSubview:lineView];
-        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_editProfileBtn.mas_bottom).offset(20);
-            make.left.right.equalTo(self);
-            make.size.mas_offset(CGSizeMake(CDScreenW, 1));
-        }];
-    }
-    return _editProfileBtn;
-}
 
 - (UIImageView *)headImgView
 {
@@ -158,6 +118,209 @@
         [_headImgView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"feedsNotLogin_320x240_"]];
     }
     return _headImgView;
+}
+
+
+- (UIButton *)editProfileBtn
+{
+    if (!_editProfileBtn) {
+        _editProfileBtn = ({
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setTitle:@"编辑个人资料" forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor cd_textColor] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:16];
+            btn;
+        });
+        [self addSubview:_editProfileBtn];
+        [_editProfileBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_headImgView.mas_bottom).offset(15);
+            make.right.equalTo(@(-15));
+            make.width.equalTo(_headImgView.mas_width);
+            make.height.equalTo(@40);
+        }];
+       self.toplineView = [self addLineViewWithMASViewAttribute:_editProfileBtn.mas_bottom withDisValue:15];
+    }
+    return _editProfileBtn;
+}
+
+
+- (UIButton *)followBtn
+{
+    if (!_followBtn) {
+        _followBtn = ({
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setTitle:@"0\n关注" forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:14];
+            btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+            btn;
+        });
+        [self addSubview:_followBtn];
+        [_followBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_timeJoinBtn.mas_bottom).offset(15);
+            make.left.equalTo(@20);
+            make.size.mas_offset(CGSizeMake(40, 50));
+        }];
+    }
+    return _followBtn;
+}
+
+- (UIButton *)fansBtn
+{
+    if (!_fansBtn) {
+        _fansBtn = ({
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setTitle:@"0\n粉丝" forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:14];
+            btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+            btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+            btn;
+        });
+        [self addSubview:_fansBtn];
+        [_fansBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_timeJoinBtn.mas_bottom).offset(15);
+            make.left.equalTo(_followBtn.mas_right).offset(30);
+            make.size.mas_offset(CGSizeMake(40, 50));
+        }];
+    }
+    return _fansBtn;
+}
+
+- (CDVerticalButton *)myFavoriteBtn
+{
+    if (!_myFavoriteBtn) {
+        _myFavoriteBtn = ({
+            CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
+            [btn setTitle:@"我的收藏" forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:@"myFavourite_25x25_"] forState:UIControlStateNormal];
+            btn;
+        });
+        [self addSubview:_myFavoriteBtn];
+        [_myFavoriteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_toplineView.mas_bottom);
+            make.left.equalTo(self);
+            make.size.mas_offset(CGSizeMake(CDScreenW / 4, 90));
+        }];
+    }
+    return _myFavoriteBtn;
+}
+
+- (CDVerticalButton *)orderBtn
+{
+    if (!_orderBtn) {
+        _orderBtn = ({
+            CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
+            [btn setTitle:@"订单" forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:@"myOrder_25x25_"] forState:UIControlStateNormal];
+            btn;
+        });
+        [self addSubview:_orderBtn];
+        [_orderBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_toplineView.mas_bottom);
+            make.left.equalTo(_myFavoriteBtn.mas_right);
+            make.size.equalTo(_myFavoriteBtn);
+        }];
+    }
+    return _orderBtn;
+}
+
+- (CDVerticalButton *)onSaleBtn
+{
+    if (!_onSaleBtn) {
+        _onSaleBtn = ({
+            CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
+            [btn setTitle:@"优惠" forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:@"myVoucher_25x25_"] forState:UIControlStateNormal];
+            btn;
+        });
+        [self addSubview:_onSaleBtn];
+        [_onSaleBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_toplineView.mas_bottom);
+            make.left.equalTo(_orderBtn.mas_right);
+            make.size.equalTo(_myFavoriteBtn);
+        }];
+    }
+    return _onSaleBtn;
+}
+
+- (CDVerticalButton *)statisticsBtn
+{
+    if (!_statisticsBtn) {
+        _statisticsBtn = ({
+            CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
+            [btn setTitle:@"统计" forState:UIControlStateNormal];
+            [btn setImage:[UIImage imageNamed:@"mystats_25x25_"] forState:UIControlStateNormal];
+            btn;
+        });
+        [self addSubview:_statisticsBtn];
+        [_statisticsBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_toplineView.mas_bottom);
+            make.left.equalTo(_onSaleBtn.mas_right);
+            make.size.equalTo(_myFavoriteBtn);
+        }];
+        self.bottomlineView = [self addLineViewWithMASViewAttribute:_statisticsBtn.mas_bottom withDisValue:0];
+    }
+    return _statisticsBtn;
+}
+
+- (UIButton *)cookbookBtn
+{
+    if (!_cookbookBtn) {
+        _cookbookBtn = ({
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setTitle:[NSString stringWithFormat:@"菜谱 %@", @"0"] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:16];
+            btn;
+        });
+        [self addSubview:_cookbookBtn];
+        [_cookbookBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@0);
+            make.top.equalTo(_bottomlineView.mas_bottom);
+            make.width.equalTo(@(CDScreenW/2));
+            make.bottom.equalTo(@0);
+        }];
+    }
+    return _cookbookBtn;
+}
+
+- (UIButton *)productionBtn
+{
+    if (!_productionBtn) {
+        _productionBtn = ({
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setTitle:[NSString stringWithFormat:@"作品 %@", @"0"] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:16];
+            btn;
+        });
+        [self addSubview:_productionBtn];
+        [_productionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(@0);
+            make.top.equalTo(_bottomlineView.mas_bottom);
+            make.width.equalTo(@(CDScreenW/2));
+            make.bottom.equalTo(@0);
+        }];
+
+    }
+    return _productionBtn;
+}
+
+#pragma mark - Comment Private Function -
+
+- (UIView *)addLineViewWithMASViewAttribute:(MASViewAttribute *)masOfEqualTo withDisValue:(NSInteger)disValue
+{
+    UIView *lineView =  [[UIView alloc] init];
+    lineView.backgroundColor = [UIColor cd_lineViewColor];
+    [self addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(masOfEqualTo).offset(disValue);
+        make.left.right.equalTo(self);
+        make.size.mas_offset(CGSizeMake(CDScreenW, 1));
+    }];
+    return lineView;
 }
 
 @end
