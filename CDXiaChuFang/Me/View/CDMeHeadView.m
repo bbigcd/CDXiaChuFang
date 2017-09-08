@@ -26,6 +26,8 @@
 @property (nonatomic, strong) UIImageView *headImgView;
 @property (nonatomic, strong) UIView *toplineView;
 @property (nonatomic, strong) UIView *bottomlineView;
+@property (nonatomic, strong) UIView *redBottomAnimationView;
+
 @end
 
 
@@ -42,10 +44,11 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        [self creatUI];
+       [self creatUI];
     }
     return self;
 }
+
 
 - (void)creatUI
 {
@@ -62,6 +65,40 @@
     [self statisticsBtn];
     [self cookbookBtn];
     [self productionBtn];
+    [self redBottomAnimationView];
+}
+
+#pragma mark - Button Click - 
+
+- (void)buttonClickAction:(UIButton *)sender
+{
+    if (sender.tag == 100) {
+        self.cookbookBtn.selected = YES;
+        self.productionBtn.selected = NO;
+        [UIView animateWithDuration:0.2f animations:^{
+            [self.redBottomAnimationView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self);
+                make.bottom.equalTo(self).offset(-2);
+                make.size.mas_offset(CGSizeMake(CDScreenW / 2, 2));
+            }];
+            [self layoutIfNeeded];
+        }];
+    }else if(sender.tag == 200){
+        self.cookbookBtn.selected = NO;
+        self.productionBtn.selected = YES;
+        [UIView animateWithDuration:0.2f animations:^{
+            [self.redBottomAnimationView mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(self);
+                make.bottom.equalTo(self).offset(-2);
+                make.size.mas_offset(CGSizeMake(CDScreenW / 2, 2));
+            }];
+            [self layoutIfNeeded];
+        }];
+    }
+
+    if (self.buttonCickBlock) {
+        self.buttonCickBlock(sender.tag, nil);
+    }
 }
 
 #pragma mark - Lazy Load -
@@ -90,6 +127,7 @@
             [btn setTitle:@"2016 加入" forState:UIControlStateNormal];
             [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_timeJoinBtn];
@@ -129,6 +167,7 @@
             [btn setTitle:@"编辑个人资料" forState:UIControlStateNormal];
             [btn setTitleColor:[UIColor cd_textColor] forState:UIControlStateNormal];
             btn.titleLabel.font = [UIFont systemFontOfSize:16];
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_editProfileBtn];
@@ -154,6 +193,7 @@
             btn.titleLabel.font = [UIFont systemFontOfSize:14];
             btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
             btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_followBtn];
@@ -176,6 +216,7 @@
             btn.titleLabel.font = [UIFont systemFontOfSize:14];
             btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
             btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_fansBtn];
@@ -195,6 +236,7 @@
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
             [btn setTitle:@"我的收藏" forState:UIControlStateNormal];
             [btn setImage:[UIImage imageNamed:@"myFavourite_25x25_"] forState:UIControlStateNormal];
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_myFavoriteBtn];
@@ -214,6 +256,7 @@
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
             [btn setTitle:@"订单" forState:UIControlStateNormal];
             [btn setImage:[UIImage imageNamed:@"myOrder_25x25_"] forState:UIControlStateNormal];
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_orderBtn];
@@ -233,6 +276,7 @@
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
             [btn setTitle:@"优惠" forState:UIControlStateNormal];
             [btn setImage:[UIImage imageNamed:@"myVoucher_25x25_"] forState:UIControlStateNormal];
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_onSaleBtn];
@@ -252,6 +296,7 @@
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
             [btn setTitle:@"统计" forState:UIControlStateNormal];
             [btn setImage:[UIImage imageNamed:@"mystats_25x25_"] forState:UIControlStateNormal];
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_statisticsBtn];
@@ -271,8 +316,12 @@
         _cookbookBtn = ({
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             [btn setTitle:[NSString stringWithFormat:@"菜谱 %@", @"0"] forState:UIControlStateNormal];
+            btn.selected = YES;
             [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor cd_textColor] forState:UIControlStateSelected];
             btn.titleLabel.font = [UIFont systemFontOfSize:16];
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
+            btn.tag = 100;
             btn;
         });
         [self addSubview:_cookbookBtn];
@@ -293,7 +342,10 @@
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             [btn setTitle:[NSString stringWithFormat:@"作品 %@", @"0"] forState:UIControlStateNormal];
             [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor cd_textColor] forState:UIControlStateSelected];
             btn.titleLabel.font = [UIFont systemFontOfSize:16];
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
+            btn.tag = 200;
             btn;
         });
         [self addSubview:_productionBtn];
@@ -306,6 +358,21 @@
 
     }
     return _productionBtn;
+}
+
+- (UIView *)redBottomAnimationView
+{
+    if (!_redBottomAnimationView) {
+        _redBottomAnimationView = [[UIView alloc] init];
+        _redBottomAnimationView.backgroundColor = [UIColor cd_textColor];
+        [self addSubview:_redBottomAnimationView];
+        [_redBottomAnimationView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self);
+            make.bottom.equalTo(self).offset(-2);
+            make.size.mas_offset(CGSizeMake(CDScreenW / 2, 2));
+        }];
+    }
+    return _redBottomAnimationView;
 }
 
 #pragma mark - Comment Private Function -
@@ -322,5 +389,7 @@
     }];
     return lineView;
 }
+
+#pragma mark - Animation Func -
 
 @end

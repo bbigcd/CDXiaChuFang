@@ -13,6 +13,7 @@
 @interface CDMeViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) CDMeHeadView *tableHeadView;
 
 @end
 
@@ -20,13 +21,22 @@
 
 static NSString *const MeTableID = @"cell";
 
+- (CDMeHeadView *)tableHeadView
+{
+    if (_tableHeadView == nil) {
+        _tableHeadView = [[CDMeHeadView alloc] initWithFrame:(CGRect){0, 0, CDScreenW, 350}];
+        
+    }
+    return _tableHeadView;
+}
+
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         [_tableView setDelegate:self];
         [_tableView setDataSource:self];
-        [_tableView setTableHeaderView:[[CDMeHeadView alloc] initWithFrame:(CGRect){0, 0, CDScreenW, 350}]];
+        [_tableView setTableHeaderView:self.tableHeadView];
         [_tableView setTableFooterView:[[UIView alloc] init]];
         [_tableView setBackgroundColor:[UIColor cd_selfViewBackgroundColor]];
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MeTableID];
@@ -42,6 +52,15 @@ static NSString *const MeTableID = @"cell";
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     [self tableView];
+    [self setupBtnsAction];
+}
+
+- (void)setupBtnsAction
+{
+    __weak typeof(self) weakSelf = self;
+    self.tableHeadView.buttonCickBlock = ^(NSInteger tag, id item){
+        NSLog(@"%@", weakSelf.title);
+    };
 }
 
 - (void)didReceiveMemoryWarning {

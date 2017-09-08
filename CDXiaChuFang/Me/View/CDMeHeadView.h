@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^UIButtonClickWithTagBlock)(NSInteger tag, id item);
+
 @interface CDMeHeadView : UIView
 
 @property (nonatomic, copy) NSString *headIconUrl;
+
+@property (nonatomic, copy) UIButtonClickWithTagBlock buttonCickBlock;
+
 
 @end
