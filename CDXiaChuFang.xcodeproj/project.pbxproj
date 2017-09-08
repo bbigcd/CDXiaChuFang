@@ -12,6 +12,7 @@
 		542B445A1F4F26E9004A38BB /* CDMainDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44591F4F26E9004A38BB /* CDMainDataSource.m */; };
 		542B504B1F618D2600A5A8EC /* CDVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B504A1F618D2600A5A8EC /* CDVerticalButton.m */; };
 		542B504E1F618E0A00A5A8EC /* UIView+CDFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B504D1F618E0A00A5A8EC /* UIView+CDFrame.m */; };
+		542B50511F62DA4100A5A8EC /* CDMeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B50501F62DA4100A5A8EC /* CDMeTableView.m */; };
 		542F63701F58554400D5DE2A /* CDMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542F636F1F58554400D5DE2A /* CDMainModel.m */; };
 		542F63721F58651600D5DE2A /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 542F63711F58651600D5DE2A /* Foundation+Log.m */; };
 		5433901B1F5DA21300E488E1 /* CDMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433901A1F5DA21300E488E1 /* CDMeViewController.m */; };
@@ -39,6 +40,8 @@
 		542B504A1F618D2600A5A8EC /* CDVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDVerticalButton.m; sourceTree = "<group>"; };
 		542B504C1F618E0A00A5A8EC /* UIView+CDFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CDFrame.h"; sourceTree = "<group>"; };
 		542B504D1F618E0A00A5A8EC /* UIView+CDFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CDFrame.m"; sourceTree = "<group>"; };
+		542B504F1F62DA4100A5A8EC /* CDMeTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMeTableView.h; sourceTree = "<group>"; };
+		542B50501F62DA4100A5A8EC /* CDMeTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMeTableView.m; sourceTree = "<group>"; };
 		542F636E1F58554400D5DE2A /* CDMainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainModel.h; sourceTree = "<group>"; };
 		542F636F1F58554400D5DE2A /* CDMainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainModel.m; sourceTree = "<group>"; };
 		542F63711F58651600D5DE2A /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 			children = (
 				5433901C1F5DA79B00E488E1 /* CDMeHeadView.h */,
 				5433901D1F5DA79B00E488E1 /* CDMeHeadView.m */,
+				542B504F1F62DA4100A5A8EC /* CDMeTableView.h */,
+				542B50501F62DA4100A5A8EC /* CDMeTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 			files = (
 				542F63701F58554400D5DE2A /* CDMainModel.m in Sources */,
 				542B504E1F618E0A00A5A8EC /* UIView+CDFrame.m in Sources */,
+				542B50511F62DA4100A5A8EC /* CDMeTableView.m in Sources */,
 				542F63721F58651600D5DE2A /* Foundation+Log.m in Sources */,
 				542B445A1F4F26E9004A38BB /* CDMainDataSource.m in Sources */,
 				545176C81F44991F006523D6 /* AppDelegate.m in Sources */,
