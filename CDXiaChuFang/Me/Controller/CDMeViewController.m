@@ -8,17 +8,19 @@
 
 #import "CDMeViewController.h"
 #import "CDMeHeadView.h"
-
+#import "CDMeNoDataCell.h"
+#import "CDMeDataModel.h"
 
 @interface CDMeViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) CDMeHeadView *tableHeadView;
+@property (nonatomic, strong) NSDictionary *noDataDic;
 
 @end
 
 @implementation CDMeViewController
-
+static NSString *const MeNoDataCell = @"MeNoDataCell";
 static NSString *const MeTableID = @"cell";
 
 - (CDMeHeadView *)tableHeadView
@@ -40,6 +42,7 @@ static NSString *const MeTableID = @"cell";
         [_tableView setTableFooterView:[[UIView alloc] init]];
         [_tableView setBackgroundColor:[UIColor cd_selfViewBackgroundColor]];
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MeTableID];
+        [_tableView registerClass:[CDMeNoDataCell class] forCellReuseIdentifier:MeNoDataCell];
         [self.view addSubview:_tableView];
     }
     return _tableView;
@@ -51,15 +54,23 @@ static NSString *const MeTableID = @"cell";
     self.title = @"我";
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    self.noDataDic = [CDMeDataModel tableCookbookNoDataDic];
     [self tableView];
     [self setupBtnsAction];
 }
 
 - (void)setupBtnsAction
 {
-//    __weak typeof(self) weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     self.tableHeadView.buttonCickBlock = ^(NSInteger tag, id item){
 //        NSLog(@"%@", weakSelf.title);
+        if(tag == 100){
+            weakSelf.noDataDic = [CDMeDataModel tableCookbookNoDataDic];
+            [weakSelf.tableView reloadData];
+        }else if (tag == 200){
+            weakSelf.noDataDic = [CDMeDataModel tableProductionNoDataDic];
+            [weakSelf.tableView reloadData];
+        }
     };
 }
 
@@ -69,27 +80,36 @@ static NSString *const MeTableID = @"cell";
 
 
 #pragma mark - UITableViewDelegate -
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 100;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 #pragma mark - UITableViewDataSource -
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MeTableID forIndexPath:indexPath];
+    CDMeNoDataCell *cell = [tableView dequeueReusableCellWithIdentifier:MeNoDataCell forIndexPath:indexPath];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MeTableID];
+        CDMeNoDataCell *cell = [[CDMeNoDataCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MeNoDataCell];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    //    cell.textLabel.text = @"ceshi";
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.titleLabel.text = self.noDataDic[@"titleLabel"];
+    cell.detailLabel.text = self.noDataDic[@"detailLabel"];
     return cell;
 }
+
 
 @end
