@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54272BDE1F65869500458174 /* CDMeNoDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54272BDD1F65869500458174 /* CDMeNoDataCell.m */; };
 		542B44421F49D14D004A38BB /* CDMainHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44411F49D14D004A38BB /* CDMainHeadView.m */; };
 		542B44471F4B31BA004A38BB /* CDHeadMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44461F4B31BA004A38BB /* CDHeadMenuCell.m */; };
 		542B445A1F4F26E9004A38BB /* CDMainDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44591F4F26E9004A38BB /* CDMainDataSource.m */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54272BDC1F65869500458174 /* CDMeNoDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMeNoDataCell.h; sourceTree = "<group>"; };
+		54272BDD1F65869500458174 /* CDMeNoDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMeNoDataCell.m; sourceTree = "<group>"; };
 		542B44401F49D14D004A38BB /* CDMainHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainHeadView.h; sourceTree = "<group>"; };
 		542B44411F49D14D004A38BB /* CDMainHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainHeadView.m; sourceTree = "<group>"; };
 		542B44441F49E804004A38BB /* CDXCFPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDXCFPrefixHeader.pch; sourceTree = "<group>"; };
@@ -82,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54272BDF1F6586A300458174 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				54272BDC1F65869500458174 /* CDMeNoDataCell.h */,
+				54272BDD1F65869500458174 /* CDMeNoDataCell.m */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
 		542B44431F49E2A7004A38BB /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +132,7 @@
 				5433901D1F5DA79B00E488E1 /* CDMeHeadView.m */,
 				542B504F1F62DA4100A5A8EC /* CDMeTableView.h */,
 				542B50501F62DA4100A5A8EC /* CDMeTableView.m */,
+				54272BDF1F6586A300458174 /* TableViewCells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -404,6 +417,7 @@
 				542B50511F62DA4100A5A8EC /* CDMeTableView.m in Sources */,
 				542F63721F58651600D5DE2A /* Foundation+Log.m in Sources */,
 				542B445A1F4F26E9004A38BB /* CDMainDataSource.m in Sources */,
+				54272BDE1F65869500458174 /* CDMeNoDataCell.m in Sources */,
 				545176C81F44991F006523D6 /* AppDelegate.m in Sources */,
 				5441896A1F49881B008F27CB /* CDMainViewController.m in Sources */,
 				545176D81F45E35F006523D6 /* CDNavigationViewController.m in Sources */,

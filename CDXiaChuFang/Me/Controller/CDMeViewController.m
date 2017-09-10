@@ -57,9 +57,9 @@ static NSString *const MeTableID = @"cell";
 
 - (void)setupBtnsAction
 {
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
     self.tableHeadView.buttonCickBlock = ^(NSInteger tag, id item){
-        NSLog(@"%@", weakSelf.title);
+//        NSLog(@"%@", weakSelf.title);
     };
 }
 
