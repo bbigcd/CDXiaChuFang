@@ -25,7 +25,7 @@
 
 @implementation CDMainViewController
 
-static NSString *const MainTableID = @"cell";
+static NSString *const MainTableID = @"MainTableID";
 
 - (UITableView *)tableView
 {
@@ -45,6 +45,9 @@ static NSString *const MainTableID = @"cell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    
     self.model = [[CDMainModel alloc] init];
     [self tableView];
     
@@ -60,7 +63,7 @@ static NSString *const MainTableID = @"cell";
 - (void)setupTableView
 {
     TableViewCellConfigureBlock configureCell = ^(CDHeadMenuCell *cell, NSArray<Navs *> *navs) {
-        [cell configureForNavs:navs];
+//        [cell configureForNavs:navs];
     };
     self.mainDataSource = [[CDMainDataSource alloc] initWithItems:_model.content.navs
                                                    cellIdentifier:MainTableID

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		54272BDE1F65869500458174 /* CDMeNoDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54272BDD1F65869500458174 /* CDMeNoDataCell.m */; };
 		54272BE21F659B5500458174 /* CDMeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54272BE11F659B5500458174 /* CDMeDataModel.m */; };
+		54272BEE1F66B4A300458174 /* CDMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54272BED1F66B4A300458174 /* CDMessageViewController.m */; };
+		54272BF11F66B63400458174 /* CDMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54272BF01F66B63400458174 /* CDMessageView.m */; };
 		542B44421F49D14D004A38BB /* CDMainHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44411F49D14D004A38BB /* CDMainHeadView.m */; };
 		542B44471F4B31BA004A38BB /* CDHeadMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44461F4B31BA004A38BB /* CDHeadMenuCell.m */; };
 		542B445A1F4F26E9004A38BB /* CDMainDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44591F4F26E9004A38BB /* CDMainDataSource.m */; };
@@ -35,6 +37,10 @@
 		54272BDD1F65869500458174 /* CDMeNoDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMeNoDataCell.m; sourceTree = "<group>"; };
 		54272BE01F659B5500458174 /* CDMeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMeDataModel.h; sourceTree = "<group>"; };
 		54272BE11F659B5500458174 /* CDMeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMeDataModel.m; sourceTree = "<group>"; };
+		54272BEC1F66B4A300458174 /* CDMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMessageViewController.h; sourceTree = "<group>"; };
+		54272BED1F66B4A300458174 /* CDMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMessageViewController.m; sourceTree = "<group>"; };
+		54272BEF1F66B63400458174 /* CDMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMessageView.h; sourceTree = "<group>"; };
+		54272BF01F66B63400458174 /* CDMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMessageView.m; sourceTree = "<group>"; };
 		542B44401F49D14D004A38BB /* CDMainHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainHeadView.h; sourceTree = "<group>"; };
 		542B44411F49D14D004A38BB /* CDMainHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainHeadView.m; sourceTree = "<group>"; };
 		542B44441F49E804004A38BB /* CDXCFPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDXCFPrefixHeader.pch; sourceTree = "<group>"; };
@@ -95,6 +101,73 @@
 				54272BDD1F65869500458174 /* CDMeNoDataCell.m */,
 			);
 			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		54272BE31F66B46A00458174 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				54272BEC1F66B4A300458174 /* CDMessageViewController.h */,
+				54272BED1F66B4A300458174 /* CDMessageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		54272BE41F66B46A00458174 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		54272BE51F66B46A00458174 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54272BEF1F66B63400458174 /* CDMessageView.h */,
+				54272BF01F66B63400458174 /* CDMessageView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		54272BE61F66B47B00458174 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		54272BE71F66B47B00458174 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		54272BE81F66B47B00458174 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		54272BE91F66B48B00458174 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		54272BEA1F66B48B00458174 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		54272BEB1F66B48B00458174 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		542B44431F49E2A7004A38BB /* Tools */ = {
@@ -231,6 +304,9 @@
 		545176C11F44988F006523D6 /* Maket */ = {
 			isa = PBXGroup;
 			children = (
+				54272BE91F66B48B00458174 /* Controller */,
+				54272BEA1F66B48B00458174 /* Model */,
+				54272BEB1F66B48B00458174 /* View */,
 			);
 			path = Maket;
 			sourceTree = "<group>";
@@ -248,6 +324,9 @@
 		545176C31F44988F006523D6 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				54272BE31F66B46A00458174 /* Controller */,
+				54272BE41F66B46A00458174 /* Model */,
+				54272BE51F66B46A00458174 /* View */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -255,6 +334,9 @@
 		545176C41F44989E006523D6 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
+				54272BE61F66B47B00458174 /* Controller */,
+				54272BE71F66B47B00458174 /* Model */,
+				54272BE81F66B47B00458174 /* View */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -420,6 +502,7 @@
 				542F63701F58554400D5DE2A /* CDMainModel.m in Sources */,
 				542B504E1F618E0A00A5A8EC /* UIView+CDFrame.m in Sources */,
 				542B50511F62DA4100A5A8EC /* CDMeTableView.m in Sources */,
+				54272BEE1F66B4A300458174 /* CDMessageViewController.m in Sources */,
 				542F63721F58651600D5DE2A /* Foundation+Log.m in Sources */,
 				542B445A1F4F26E9004A38BB /* CDMainDataSource.m in Sources */,
 				54272BDE1F65869500458174 /* CDMeNoDataCell.m in Sources */,
@@ -432,6 +515,7 @@
 				5433901E1F5DA79B00E488E1 /* CDMeHeadView.m in Sources */,
 				545176AA1F4496BF006523D6 /* main.m in Sources */,
 				542B504B1F618D2600A5A8EC /* CDVerticalButton.m in Sources */,
+				54272BF11F66B63400458174 /* CDMessageView.m in Sources */,
 				542B44421F49D14D004A38BB /* CDMainHeadView.m in Sources */,
 				545176D51F449A76006523D6 /* CDTabBarViewController.m in Sources */,
 				5435A7471F604AA200780AD6 /* UIColor+CDColor.m in Sources */,
