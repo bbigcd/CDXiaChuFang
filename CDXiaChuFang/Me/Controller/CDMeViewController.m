@@ -41,6 +41,7 @@ static NSString *const MeTableID = @"cell";
         [_tableView setTableHeaderView:self.tableHeadView];
         [_tableView setTableFooterView:[[UIView alloc] init]];
         [_tableView setBackgroundColor:[UIColor cd_selfViewBackgroundColor]];
+        [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MeTableID];
         [_tableView registerClass:[CDMeNoDataCell class] forCellReuseIdentifier:MeNoDataCell];
         [self.view addSubview:_tableView];
@@ -108,6 +109,11 @@ static NSString *const MeTableID = @"cell";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.titleLabel.text = self.noDataDic[@"titleLabel"];
     cell.detailLabel.text = self.noDataDic[@"detailLabel"];
+    
+    UIView *backgrdView = [[UIView alloc] initWithFrame:cell.frame];
+    backgrdView.backgroundColor = [UIColor cd_selfViewBackgroundColor];
+    cell.backgroundView = backgrdView;
+    
     return cell;
 }
 

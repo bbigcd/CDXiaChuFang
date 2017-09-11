@@ -24,7 +24,7 @@
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:_titleLabel];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(@40);
+            make.top.equalTo(@50);
             make.centerX.equalTo(self);
         }];
     }
@@ -40,7 +40,7 @@
         _detailLabel.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:_detailLabel];
         [_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_titleLabel.mas_bottom).offset(25);
+            make.top.equalTo(_titleLabel.mas_bottom).offset(30);
             make.centerX.equalTo(self);
         }];
     }
