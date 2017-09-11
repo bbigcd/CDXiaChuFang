@@ -11,6 +11,7 @@
 		54272BE21F659B5500458174 /* CDMeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 54272BE11F659B5500458174 /* CDMeDataModel.m */; };
 		54272BEE1F66B4A300458174 /* CDMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54272BED1F66B4A300458174 /* CDMessageViewController.m */; };
 		54272BF11F66B63400458174 /* CDMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54272BF01F66B63400458174 /* CDMessageView.m */; };
+		54272BF41F66C1CD00458174 /* CDFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54272BF31F66C1CD00458174 /* CDFavoriteViewController.m */; };
 		542B44421F49D14D004A38BB /* CDMainHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44411F49D14D004A38BB /* CDMainHeadView.m */; };
 		542B44471F4B31BA004A38BB /* CDHeadMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44461F4B31BA004A38BB /* CDHeadMenuCell.m */; };
 		542B445A1F4F26E9004A38BB /* CDMainDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B44591F4F26E9004A38BB /* CDMainDataSource.m */; };
@@ -41,6 +42,8 @@
 		54272BED1F66B4A300458174 /* CDMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMessageViewController.m; sourceTree = "<group>"; };
 		54272BEF1F66B63400458174 /* CDMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMessageView.h; sourceTree = "<group>"; };
 		54272BF01F66B63400458174 /* CDMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMessageView.m; sourceTree = "<group>"; };
+		54272BF21F66C1CD00458174 /* CDFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFavoriteViewController.h; sourceTree = "<group>"; };
+		54272BF31F66C1CD00458174 /* CDFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFavoriteViewController.m; sourceTree = "<group>"; };
 		542B44401F49D14D004A38BB /* CDMainHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainHeadView.h; sourceTree = "<group>"; };
 		542B44411F49D14D004A38BB /* CDMainHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainHeadView.m; sourceTree = "<group>"; };
 		542B44441F49E804004A38BB /* CDXCFPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDXCFPrefixHeader.pch; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 		54272BE61F66B47B00458174 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				54272BF21F66C1CD00458174 /* CDFavoriteViewController.h */,
+				54272BF31F66C1CD00458174 /* CDFavoriteViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 				54272BDE1F65869500458174 /* CDMeNoDataCell.m in Sources */,
 				545176C81F44991F006523D6 /* AppDelegate.m in Sources */,
 				5441896A1F49881B008F27CB /* CDMainViewController.m in Sources */,
+				54272BF41F66C1CD00458174 /* CDFavoriteViewController.m in Sources */,
 				545176D81F45E35F006523D6 /* CDNavigationViewController.m in Sources */,
 				542B44471F4B31BA004A38BB /* CDHeadMenuCell.m in Sources */,
 				54272BE21F659B5500458174 /* CDMeDataModel.m in Sources */,
