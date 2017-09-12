@@ -7,6 +7,7 @@
 //
 
 #import "CDMaketViewController.h"
+#import<WebKit/WebKit.h>
 
 @interface CDMaketViewController ()
 
@@ -29,7 +30,7 @@
 
 - (void)setupWebView
 {
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:webView];
     NSURL *url = [NSURL URLWithString:@"https://www.xiachufang.com/page/ec-tab/"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
