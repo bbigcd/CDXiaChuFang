@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^UIButtonClickWithTagBlock)(NSInteger tag, id item);
+
+@class Navs;
 @interface CDHeadMenuCell : UITableViewCell
 
-@property (nonatomic, strong) UIButton *btn1;
-@property (nonatomic, strong) UIButton *btn2;
-@property (nonatomic, strong) UIButton *btn3;
-@property (nonatomic, strong) UIButton *btn4;
+@property (nonatomic, copy) UIButtonClickWithTagBlock buttonClickWithTagBlock;
+
+- (void)setNavsWithItem:(NSArray<Navs *> *)navs;
 
 @end
