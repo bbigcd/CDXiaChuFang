@@ -8,12 +8,13 @@
 
 #import "CDHeadMenuCell+ConfigureForMemuCell.h"
 #import <UIButton+WebCache.h>
+
 @implementation CDHeadMenuCell (ConfigureForMemuCell)
 
 - (void)configureForNavs:(NSArray<Navs *> *)navs
 {
-    [self.btn1 setTitle:navs[0].name forState:UIControlStateNormal];
-    [self.btn1 sd_setImageWithURL:[NSURL URLWithString:navs[0].url] forState:UIControlStateNormal];
+//    [self.btn1 setTitle:navs[0].name forState:UIControlStateNormal];
+//    [self.btn1 sd_setImageWithURL:[NSURL URLWithString:navs[0].url] forState:UIControlStateNormal];
 }
 
 @end

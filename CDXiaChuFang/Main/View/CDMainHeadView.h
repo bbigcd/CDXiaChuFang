@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^UIButtonClickWithTagBlock)(NSInteger tag, id item);
+
+@class Navs;
 @interface CDMainHeadView : UIView
 
-@property (nonatomic, strong) UIView *leftView;
-@property (nonatomic, strong) UIView *rightView;
+@property (nonatomic, copy) UIButtonClickWithTagBlock buttonClickWithTagBlock;
+- (void)setNavsWithItem:(NSArray<Navs *> *)navs;
 
 @end
