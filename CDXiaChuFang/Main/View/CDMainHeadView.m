@@ -33,9 +33,27 @@
 {
     self = [super init];
     if (self) {
-        
+        [self createUI];
     }
     return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self createUI];
+    }
+    return self;
+}
+
+- (void)createUI
+{
+    [self cookThingsBtn];
+    [self cookAskBtn];
+    [self leaderboardBtn];
+    [self cookMenuBtn];
+    
 }
 
 - (void)buttonClickAction:(UIButton *)sender
@@ -59,7 +77,7 @@
 - (void)setNavWithBtn:(UIButton *)btn withItem:(Navs *)navs
 {
     [btn setTitle:navs.name forState:UIControlStateNormal];
-    [btn sd_setImageWithURL:[NSURL URLWithString:navs.url] forState:UIControlStateNormal];
+    [btn sd_setImageWithURL:[NSURL URLWithString:navs.picurl] forState:UIControlStateNormal];
 }
 
 #pragma mark - lazy load -
@@ -70,6 +88,7 @@
         _cookThingsBtn = ({
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];
             [btn setTitle:@"" forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:12];
             [btn setImage:nil forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
@@ -90,13 +109,16 @@
         _cookAskBtn = ({
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
             [btn setTitle:@"" forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:12];
             [btn setImage:nil forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_cookAskBtn];
         [_cookAskBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            
+            make.left.equalTo(_cookThingsBtn.mas_right);
+            make.top.equalTo(@10);
+            make.size.mas_offset(CGSizeMake(CDScreenW/4, 100));
         }];
     }
     return _cookAskBtn;
@@ -108,13 +130,16 @@
         _leaderboardBtn = ({
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
             [btn setTitle:@"" forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:12];
             [btn setImage:nil forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_leaderboardBtn];
         [_leaderboardBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            
+            make.left.equalTo(_cookAskBtn.mas_right);
+            make.top.equalTo(@10);
+            make.size.mas_offset(CGSizeMake(CDScreenW/4, 100));
         }];
     }
     return _leaderboardBtn;
@@ -126,13 +151,16 @@
         _cookMenuBtn = ({
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
             [btn setTitle:@"" forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:12];
             [btn setImage:nil forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_cookMenuBtn];
         [_cookMenuBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            
+            make.left.equalTo(_leaderboardBtn.mas_right);
+            make.top.equalTo(@10);
+            make.size.mas_offset(CGSizeMake(CDScreenW/4, 100));
         }];
     }
     return _cookMenuBtn;

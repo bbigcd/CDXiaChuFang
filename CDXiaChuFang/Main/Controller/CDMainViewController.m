@@ -20,12 +20,22 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) CDMainModel *model;
 @property (nonatomic, strong) CDMainDataSource *mainDataSource;
-
+@property (nonatomic, strong) CDMainHeadView *headView;
 @end
 
 @implementation CDMainViewController
 
 static NSString *const MainTableID = @"MainTableID";
+
+- (CDMainHeadView *)headView
+{
+    if (!_headView) {
+        _headView = [[CDMainHeadView alloc] initWithFrame:(CGRect){0, 0, CDScreenW, 400}];
+//        _headView.backgroundColor = [UIColor blueColor];
+    }
+    return _headView;
+}
+
 
 - (UITableView *)tableView
 {
@@ -33,6 +43,7 @@ static NSString *const MainTableID = @"MainTableID";
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         [_tableView setDelegate:self];
         [_tableView setDataSource:self];
+        [_tableView setTableHeaderView:self.headView];
         [_tableView setTableFooterView:[[UIView alloc] init]];
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MainTableID];
         [self.view addSubview:_tableView];
@@ -62,8 +73,10 @@ static NSString *const MainTableID = @"MainTableID";
 
 - (void)setupTableView
 {
+    
+    //    __weak typeof(self) weakSelf = self;
     TableViewCellConfigureBlock configureCell = ^(CDHeadMenuCell *cell, NSArray<Navs *> *navs) {
-//        [cell configureForNavs:navs];
+        //        [cell configureForNavs:navs];
     };
     self.mainDataSource = [[CDMainDataSource alloc] initWithItems:_model.content.navs
                                                    cellIdentifier:MainTableID
@@ -90,6 +103,10 @@ static NSString *const MainTableID = @"MainTableID";
     [manager GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.model = [CDMainModel yy_modelWithJSON:responseObject];
         NSLog(@"%@",self.model.status);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.headView setNavsWithItem:self.model.content.navs];
+        });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
