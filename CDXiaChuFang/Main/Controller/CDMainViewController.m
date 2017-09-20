@@ -105,7 +105,7 @@ static NSString *const MainTableID = @"MainTableID";
         NSLog(@"%@",self.model.status);
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.headView setNavsWithItem:self.model.content.navs];
+            [self.headView setContentWithItem:self.model.content];
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         

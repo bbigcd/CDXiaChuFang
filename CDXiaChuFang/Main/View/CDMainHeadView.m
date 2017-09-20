@@ -53,6 +53,8 @@
     [self cookAskBtn];
     [self leaderboardBtn];
     [self cookMenuBtn];
+    [self thisWeekCookBtn];
+    [self fllowAttentionBtn];
     
 }
 
@@ -63,13 +65,16 @@
     }
 }
 
-- (void)setNavsWithItem:(NSArray<Navs *> *)navs
+- (void)setContentWithItem:(Content *)item
 {
-    if (navs.count >= 4) {
-        [self setNavWithBtn:_cookThingsBtn withItem:navs[0]];
-        [self setNavWithBtn:_cookAskBtn withItem:navs[1]];
-        [self setNavWithBtn:_leaderboardBtn withItem:navs[2]];
-        [self setNavWithBtn:_cookMenuBtn withItem:navs[3]];
+    if (item.navs.count >= 4) {
+        [self setNavWithBtn:_cookThingsBtn withItem:item.navs[0]];
+        [self setNavWithBtn:_cookAskBtn withItem:item.navs[1]];
+        [self setNavWithBtn:_leaderboardBtn withItem:item.navs[2]];
+        [self setNavWithBtn:_cookMenuBtn withItem:item.navs[3]];
+    }
+    if (item.popRecipeRicurl != NULL) {
+        [self.thisWeekCookBtn sd_setImageWithURL:[NSURL URLWithString:item.popRecipeRicurl] forState:UIControlStateNormal];
     }
 }
 
@@ -87,17 +92,16 @@
     if (!_cookThingsBtn) {
         _cookThingsBtn = ({
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];
-            [btn setTitle:@"" forState:UIControlStateNormal];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
-            [btn setImage:nil forState:UIControlStateNormal];
+//            btn.backgroundColor = [UIColor grayColor];
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
         [self addSubview:_cookThingsBtn];
         [_cookThingsBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self);
+            make.left.equalTo(@10);
             make.top.equalTo(@10);
-            make.size.mas_offset(CGSizeMake(CDScreenW/4, 100));
+            make.size.mas_offset(CGSizeMake((CDScreenW-20)/4, 100));
         }];
     }
     return _cookThingsBtn;
@@ -107,10 +111,8 @@
 {
     if (!_cookAskBtn) {
         _cookAskBtn = ({
-            CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
-            [btn setTitle:@"" forState:UIControlStateNormal];
+            CDVerticalButton *btn = [[CDVerticalButton alloc] init];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
-            [btn setImage:nil forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
@@ -118,7 +120,7 @@
         [_cookAskBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_cookThingsBtn.mas_right);
             make.top.equalTo(@10);
-            make.size.mas_offset(CGSizeMake(CDScreenW/4, 100));
+            make.size.mas_offset(CGSizeMake((CDScreenW-20)/4, 100));
         }];
     }
     return _cookAskBtn;
@@ -128,10 +130,8 @@
 {
     if (!_leaderboardBtn) {
         _leaderboardBtn = ({
-            CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
-            [btn setTitle:@"" forState:UIControlStateNormal];
+            CDVerticalButton *btn = [[CDVerticalButton alloc] init];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
-            [btn setImage:nil forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
@@ -139,7 +139,7 @@
         [_leaderboardBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_cookAskBtn.mas_right);
             make.top.equalTo(@10);
-            make.size.mas_offset(CGSizeMake(CDScreenW/4, 100));
+            make.size.mas_offset(CGSizeMake((CDScreenW-20)/4, 100));
         }];
     }
     return _leaderboardBtn;
@@ -149,10 +149,8 @@
 {
     if (!_cookMenuBtn) {
         _cookMenuBtn = ({
-            CDVerticalButton *btn = [[CDVerticalButton alloc] init];;
-            [btn setTitle:@"" forState:UIControlStateNormal];
+            CDVerticalButton *btn = [[CDVerticalButton alloc] init];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
-            [btn setImage:nil forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
@@ -160,11 +158,48 @@
         [_cookMenuBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(_leaderboardBtn.mas_right);
             make.top.equalTo(@10);
-            make.size.mas_offset(CGSizeMake(CDScreenW/4, 100));
+            make.size.mas_offset(CGSizeMake((CDScreenW-20)/4, 100));
         }];
     }
     return _cookMenuBtn;
 }
 
+- (UIButton *)thisWeekCookBtn
+{
+    if (!_thisWeekCookBtn) {
+        _thisWeekCookBtn = ({
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            btn.backgroundColor = [UIColor cyanColor];
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
+            btn;
+        });
+        [self addSubview:_thisWeekCookBtn];
+        [_thisWeekCookBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@16);
+            make.top.equalTo(_cookThingsBtn.mas_bottom);
+            make.size.mas_offset(CGSizeMake((CDScreenW-46)/2, 140));
+        }];
+    }
+    return _thisWeekCookBtn;
+}
+
+- (UIButton *)fllowAttentionBtn
+{
+    if (!_fllowAttentionBtn) {
+        _fllowAttentionBtn = ({
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            btn.backgroundColor = [UIColor cyanColor];
+            [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
+            btn;
+        });
+        [self addSubview:_fllowAttentionBtn];
+        [_fllowAttentionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_thisWeekCookBtn.mas_right).offset(14);
+            make.top.equalTo(_cookThingsBtn.mas_bottom);
+            make.size.mas_offset(CGSizeMake((CDScreenW-46)/2, 140));
+        }];
+    }
+    return _fllowAttentionBtn;
+}
 
 @end

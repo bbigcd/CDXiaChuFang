@@ -10,10 +10,10 @@
 
 typedef void (^UIButtonClickWithTagBlock)(NSInteger tag, id item);
 
-@class Navs;
+@class Content;
 @interface CDMainHeadView : UIView
 
 @property (nonatomic, copy) UIButtonClickWithTagBlock buttonClickWithTagBlock;
-- (void)setNavsWithItem:(NSArray<Navs *> *)navs;
+- (void)setContentWithItem:(Content *)item;
 
 @end
