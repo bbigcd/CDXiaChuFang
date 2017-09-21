@@ -32,6 +32,9 @@ static NSString *const MainTableID = @"MainTableID";
     if (!_headView) {
         _headView = [[CDMainHeadView alloc] initWithFrame:(CGRect){0, 0, CDScreenW, 400}];
 //        _headView.backgroundColor = [UIColor blueColor];
+        _headView.buttonClickWithTagBlock = ^(NSInteger tag, id item) {
+            NSLog(@"%ld", (long)tag);
+        };
     }
     return _headView;
 }

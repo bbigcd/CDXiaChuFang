@@ -13,5 +13,5 @@
 + (UIColor *)cd_textColor;
 + (UIColor *)cd_lineViewColor;
 + (UIColor *)cd_selfViewBackgroundColor;
-
++ (UIColor *)cd_mainHeadViewNormalBgColor;
 @end

@@ -75,6 +75,7 @@
     }
     if (item.popRecipeRicurl != NULL) {
         [self.thisWeekCookBtn sd_setImageWithURL:[NSURL URLWithString:item.popRecipeRicurl] forState:UIControlStateNormal];
+        [self.fllowAttentionBtn setImage:[UIImage imageNamed:@"feedsNotLogin_320x240_"] forState:UIControlStateNormal];
     }
 }
 
@@ -94,6 +95,7 @@
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
 //            btn.backgroundColor = [UIColor grayColor];
+            btn.tag = 100;
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
@@ -113,6 +115,7 @@
         _cookAskBtn = ({
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
+            btn.tag = 200;
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
@@ -132,6 +135,7 @@
         _leaderboardBtn = ({
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
+            btn.tag = 300;
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
@@ -151,6 +155,7 @@
         _cookMenuBtn = ({
             CDVerticalButton *btn = [[CDVerticalButton alloc] init];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
+            btn.tag = 400;
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
@@ -169,7 +174,8 @@
     if (!_thisWeekCookBtn) {
         _thisWeekCookBtn = ({
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            btn.backgroundColor = [UIColor cyanColor];
+            btn.backgroundColor = [UIColor cd_mainHeadViewNormalBgColor];
+            btn.tag = 500;
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
@@ -179,6 +185,27 @@
             make.top.equalTo(_cookThingsBtn.mas_bottom);
             make.size.mas_offset(CGSizeMake((CDScreenW-46)/2, 140));
         }];
+        
+        // label
+        self.thisWeekCookLab = [[UILabel alloc] init];
+        _thisWeekCookLab.text = @"流行菜谱";
+        _thisWeekCookLab.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+        _thisWeekCookLab.textColor = [UIColor whiteColor];
+        [_thisWeekCookBtn addSubview:self.thisWeekCookLab];
+        [_thisWeekCookLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_thisWeekCookBtn.mas_left).offset(16);
+            make.bottom.equalTo(_thisWeekCookBtn.mas_bottom).offset(-16);
+        }];
+        UILabel *label = [[UILabel alloc] init];
+        label.text = @"本周";
+        label.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+        label.textColor = [UIColor whiteColor];
+        [_thisWeekCookBtn addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_thisWeekCookBtn.mas_left).offset(16);
+            make.bottom.equalTo(_thisWeekCookLab.mas_top).offset(-5);
+        }];
+        
     }
     return _thisWeekCookBtn;
 }
@@ -188,7 +215,8 @@
     if (!_fllowAttentionBtn) {
         _fllowAttentionBtn = ({
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            btn.backgroundColor = [UIColor cyanColor];
+            btn.backgroundColor = [UIColor cd_mainHeadViewNormalBgColor];
+            btn.tag = 600;
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
         });
@@ -197,6 +225,16 @@
             make.left.equalTo(_thisWeekCookBtn.mas_right).offset(14);
             make.top.equalTo(_cookThingsBtn.mas_bottom);
             make.size.mas_offset(CGSizeMake((CDScreenW-46)/2, 140));
+        }];
+        
+        self.fllowAttentionLab = [[UILabel alloc] init];
+        _fllowAttentionLab.text = @"关注动态";
+        _fllowAttentionLab.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+        _fllowAttentionLab.textColor = [UIColor whiteColor];
+        [_fllowAttentionBtn addSubview:self.fllowAttentionLab];
+        [_fllowAttentionLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_fllowAttentionBtn.mas_left).offset(16);
+            make.bottom.equalTo(_fllowAttentionBtn.mas_bottom).offset(-16);
         }];
     }
     return _fllowAttentionBtn;

@@ -23,4 +23,9 @@
 {
     return [UIColor colorWithRed:0.98 green:0.98 blue:0.97 alpha:1.00];
 }
+
++ (UIColor *)cd_mainHeadViewNormalBgColor
+{
+    return [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.00];
+}
 @end
