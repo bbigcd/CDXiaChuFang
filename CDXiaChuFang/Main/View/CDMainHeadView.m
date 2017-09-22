@@ -7,15 +7,15 @@
 //
 
 #import "CDMainHeadView.h"
-#import "CDVerticalButton.h"
+#import "CDMainVerticalButton.h"
 #import "CDMainModel.h"
 #import <UIButton+WebCache.h>
 
 @interface CDMainHeadView()
-@property (nonatomic, strong) UIButton *cookThingsBtn;
-@property (nonatomic, strong) UIButton *cookAskBtn;
-@property (nonatomic, strong) UIButton *leaderboardBtn;
-@property (nonatomic, strong) UIButton *cookMenuBtn;
+@property (nonatomic, strong) CDMainVerticalButton *cookThingsBtn;
+@property (nonatomic, strong) CDMainVerticalButton *cookAskBtn;
+@property (nonatomic, strong) CDMainVerticalButton *leaderboardBtn;
+@property (nonatomic, strong) CDMainVerticalButton *cookMenuBtn;
 
 @property (nonatomic, strong) UIButton *thisWeekCookBtn;
 @property (nonatomic, strong) UILabel *thisWeekCookLab;
@@ -88,11 +88,11 @@
 
 #pragma mark - lazy load -
 
-- (UIButton *)cookThingsBtn
+- (CDMainVerticalButton *)cookThingsBtn
 {
     if (!_cookThingsBtn) {
         _cookThingsBtn = ({
-            CDVerticalButton *btn = [[CDVerticalButton alloc] init];
+            CDMainVerticalButton *btn = [[CDMainVerticalButton alloc] init];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
 //            btn.backgroundColor = [UIColor grayColor];
             btn.tag = 100;
@@ -109,11 +109,11 @@
     return _cookThingsBtn;
 }
 
-- (UIButton *)cookAskBtn
+- (CDMainVerticalButton *)cookAskBtn
 {
     if (!_cookAskBtn) {
         _cookAskBtn = ({
-            CDVerticalButton *btn = [[CDVerticalButton alloc] init];
+            CDMainVerticalButton *btn = [[CDMainVerticalButton alloc] init];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
             btn.tag = 200;
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -129,11 +129,11 @@
     return _cookAskBtn;
 }
 
-- (UIButton *)leaderboardBtn
+- (CDMainVerticalButton *)leaderboardBtn
 {
     if (!_leaderboardBtn) {
         _leaderboardBtn = ({
-            CDVerticalButton *btn = [[CDVerticalButton alloc] init];
+            CDMainVerticalButton *btn = [[CDMainVerticalButton alloc] init];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
             btn.tag = 300;
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -153,7 +153,7 @@
 {
     if (!_cookMenuBtn) {
         _cookMenuBtn = ({
-            CDVerticalButton *btn = [[CDVerticalButton alloc] init];
+            CDMainVerticalButton *btn = [[CDMainVerticalButton alloc] init];
             btn.titleLabel.font = [UIFont systemFontOfSize:12];
             btn.tag = 400;
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];

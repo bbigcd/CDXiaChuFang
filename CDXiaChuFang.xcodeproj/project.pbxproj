@@ -21,6 +21,7 @@
 		542B50511F62DA4100A5A8EC /* CDMeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 542B50501F62DA4100A5A8EC /* CDMeTableView.m */; };
 		542F63701F58554400D5DE2A /* CDMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542F636F1F58554400D5DE2A /* CDMainModel.m */; };
 		542F63721F58651600D5DE2A /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 542F63711F58651600D5DE2A /* Foundation+Log.m */; };
+		5431FD001F75598E00ECC9C4 /* CDMainVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5431FCFF1F75598E00ECC9C4 /* CDMainVerticalButton.m */; };
 		5433901B1F5DA21300E488E1 /* CDMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433901A1F5DA21300E488E1 /* CDMeViewController.m */; };
 		5433901E1F5DA79B00E488E1 /* CDMeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5433901D1F5DA79B00E488E1 /* CDMeHeadView.m */; };
 		5435A7471F604AA200780AD6 /* UIColor+CDColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5435A7461F604AA200780AD6 /* UIColor+CDColor.m */; };
@@ -63,6 +64,8 @@
 		542F636E1F58554400D5DE2A /* CDMainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainModel.h; sourceTree = "<group>"; };
 		542F636F1F58554400D5DE2A /* CDMainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainModel.m; sourceTree = "<group>"; };
 		542F63711F58651600D5DE2A /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		5431FCFE1F75598E00ECC9C4 /* CDMainVerticalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMainVerticalButton.h; sourceTree = "<group>"; };
+		5431FCFF1F75598E00ECC9C4 /* CDMainVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMainVerticalButton.m; sourceTree = "<group>"; };
 		543390191F5DA21300E488E1 /* CDMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMeViewController.h; sourceTree = "<group>"; };
 		5433901A1F5DA21300E488E1 /* CDMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMeViewController.m; sourceTree = "<group>"; };
 		5433901C1F5DA79B00E488E1 /* CDMeHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMeHeadView.h; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				5435A7461F604AA200780AD6 /* UIColor+CDColor.m */,
 				542B50491F618D2600A5A8EC /* CDVerticalButton.h */,
 				542B504A1F618D2600A5A8EC /* CDVerticalButton.m */,
+				5431FCFE1F75598E00ECC9C4 /* CDMainVerticalButton.h */,
+				5431FCFF1F75598E00ECC9C4 /* CDMainVerticalButton.m */,
 				542B504C1F618E0A00A5A8EC /* UIView+CDFrame.h */,
 				542B504D1F618E0A00A5A8EC /* UIView+CDFrame.m */,
 			);
@@ -520,6 +525,7 @@
 				5441896A1F49881B008F27CB /* CDMainViewController.m in Sources */,
 				54272BF41F66C1CD00458174 /* CDFavoriteViewController.m in Sources */,
 				545176D81F45E35F006523D6 /* CDNavigationViewController.m in Sources */,
+				5431FD001F75598E00ECC9C4 /* CDMainVerticalButton.m in Sources */,
 				54272BF91F68165500458174 /* CDMaketViewController.m in Sources */,
 				542B44471F4B31BA004A38BB /* CDHeadMenuCell.m in Sources */,
 				54272BE21F659B5500458174 /* CDMeDataModel.m in Sources */,
