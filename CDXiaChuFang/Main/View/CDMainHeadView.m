@@ -11,7 +11,8 @@
 #import "CDMainModel.h"
 #import <UIButton+WebCache.h>
 
-@interface CDMainHeadView()
+@interface CDMainHeadView()<UIScrollViewDelegate>
+
 @property (nonatomic, strong) CDMainVerticalButton *cookThingsBtn;
 @property (nonatomic, strong) CDMainVerticalButton *cookAskBtn;
 @property (nonatomic, strong) CDMainVerticalButton *leaderboardBtn;
@@ -55,7 +56,7 @@
     [self cookMenuBtn];
     [self thisWeekCookBtn];
     [self fllowAttentionBtn];
-    
+    [self scrollView];
 }
 
 - (void)buttonClickAction:(UIButton *)sender
@@ -238,6 +239,23 @@
         }];
     }
     return _fllowAttentionBtn;
+}
+
+- (UIScrollView *)scrollView
+{
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] init];
+        _scrollView.backgroundColor = [UIColor grayColor];
+        _scrollView.delegate = self;
+        [self addSubview:_scrollView];
+        [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self).offset(16);
+            make.right.equalTo(self).offset(-16);
+            make.top.equalTo(_fllowAttentionBtn.mas_bottom).offset(20);
+            make.bottom.equalTo(self).offset(-10);
+        }];
+    }
+    return _scrollView;
 }
 
 @end
