@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^SubscriptionBtnClickBlock)();
+typedef void (^SubscriptionBtnClickBlock)(void);
 
 @interface CDMessageView : UIView
 
