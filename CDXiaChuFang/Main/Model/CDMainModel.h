@@ -28,7 +28,7 @@
 
 @class Events;
 @interface PopEvents : NSObject
-@property (nonatomic, copy) NSString *count;
+@property (nonatomic, assign) NSInteger count;
 @property (nonatomic, strong) NSArray<Events *> *events;
 @end
 
@@ -45,7 +45,7 @@
 @class Customization, Dishes;
 @interface Events : NSObject
 
-@property (nonatomic, copy) NSString *nDishes;
+@property (nonatomic, assign) NSInteger *nDishes;
 @property (nonatomic, copy) NSString *kId;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) Customization *customization;

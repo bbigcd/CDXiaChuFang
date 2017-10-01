@@ -10,6 +10,7 @@
 #import "CDMainVerticalButton.h"
 #import "CDMainModel.h"
 #import <UIButton+WebCache.h>
+#import "NSDate+CDDate.h"
 
 @interface CDMainHeadView()<UIScrollViewDelegate>
 
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) UILabel *fllowAttentionLab;
 
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIPageControl *pageControl;
 
 
 @end
@@ -77,6 +79,12 @@
     if (item.popRecipeRicurl != NULL) {
         [self.thisWeekCookBtn sd_setImageWithURL:[NSURL URLWithString:item.popRecipeRicurl] forState:UIControlStateNormal];
         [self.fllowAttentionBtn setImage:[UIImage imageNamed:@"feedsNotLogin_320x240_"] forState:UIControlStateNormal];
+    }
+    if (item.popEvents != NULL &&
+        item.popEvents.count > 0 &&
+        item.popEvents.events.count > 0)
+    {
+        [self setupScrollViewItme:item.popEvents.events];
     }
 }
 
@@ -175,7 +183,7 @@
     if (!_thisWeekCookBtn) {
         _thisWeekCookBtn = ({
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            btn.backgroundColor = [UIColor cd_mainHeadViewNormalBgColor];
+            [btn setBackgroundImage:[UIImage imageNamed:@"contentMask_134x110_"] forState:UIControlStateNormal];
             btn.tag = 500;
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
@@ -216,7 +224,7 @@
     if (!_fllowAttentionBtn) {
         _fllowAttentionBtn = ({
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            btn.backgroundColor = [UIColor cd_mainHeadViewNormalBgColor];
+            [btn setBackgroundImage:[UIImage imageNamed:@"contentMask_134x110_"] forState:UIControlStateNormal];
             btn.tag = 600;
             [btn addTarget:self action:@selector(buttonClickAction:) forControlEvents:UIControlEventTouchUpInside];
             btn;
@@ -245,17 +253,73 @@
 {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.backgroundColor = [UIColor grayColor];
+//        _scrollView.backgroundColor = [UIColor grayColor];
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.pagingEnabled = YES;
         _scrollView.delegate = self;
         [self addSubview:_scrollView];
         [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(16);
-            make.right.equalTo(self).offset(-16);
+            make.left.right.equalTo(self);
             make.top.equalTo(_fllowAttentionBtn.mas_bottom).offset(20);
             make.bottom.equalTo(self).offset(-10);
         }];
+        
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.image = [UIImage imageNamed:@"themeSmallPic_375x100_"];
+        [self addSubview:imageView];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(self);
+            make.top.equalTo(_fllowAttentionBtn.mas_bottom).offset(20);
+            make.height.offset(100);
+        }];
+        
+        
     }
     return _scrollView;
 }
 
+- (UIPageControl *)pageControl
+{
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] init];
+        
+    }
+    return _pageControl;
+}
+
+#pragma mark - scrollViewItem -
+- (void)setupScrollViewItme:(NSArray<Events *> *)events
+{
+    NSArray *titles = @[@"- 早餐 -", @"- 午餐 -", @"- 晚餐 -"];
+    NSArray *imageNames = @[@"themeSmallPicForBreakfast_375x100_",
+                            @"themeSmallPicForLaunch_375x100_",
+                            @"themeSmallPicForSupper_375x100_"];
+    for (int i = 0; i < events.count; i++) {
+        _scrollView.contentSize = (CGSize){ _scrollView.bounds.size.width * events.count, _scrollView.bounds.size.height};
+        
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.image = [UIImage imageNamed:imageNames[i]];
+        imageView.frame = (CGRect){_scrollView.bounds.size.width * i, _scrollView.bounds.origin.y - 2, _scrollView.bounds.size.width, 100};
+        [_scrollView addSubview:imageView];
+        
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.text = titles[i];
+        label.font = [UIFont systemFontOfSize:20];
+        label.textAlignment = NSTextAlignmentCenter;
+        [_scrollView addSubview:label];
+        CGFloat lableX = ((_scrollView.bounds.size.width - 100) / 2) + _scrollView.bounds.size.width * i;
+        label.frame = (CGRect){lableX, (_scrollView.height - 60) / 2 - 25, 100, 60};
+        
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [btn sd_setImageWithURL:[NSURL URLWithString:events[i].kId] forState:UIControlStateNormal];
+        btn.backgroundColor = [UIColor brownColor];
+        [_scrollView addSubview:btn];
+        btn.alpha = 0.5f;
+        CGFloat btnX = (_scrollView.bounds.size.width - 96) + _scrollView.bounds.size.width * i;
+        btn.frame = (CGRect){btnX, (_scrollView.height - 96) / 2, 80, 80};
+    }
+}
+
 @end
+
