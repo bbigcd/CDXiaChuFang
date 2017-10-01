@@ -59,9 +59,9 @@ static NSString *const MainTableID = @"MainTableID";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-    
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    [self setupBarButtonItem];
     self.model = [[CDMainModel alloc] init];
     [self tableView];
     
@@ -74,9 +74,36 @@ static NSString *const MainTableID = @"MainTableID";
     [self.tableView.mj_header beginRefreshing];
 }
 
+- (void)setupBarButtonItem
+{
+    UIBarButtonItem *leftItem = [self creatBarButtonWithImageName:@"creatrecipeicon_22x22_" Tag:100];
+    UIBarButtonItem *rightItem = [self creatBarButtonWithImageName:@"buylistButtonImage_22x22_" Tag:200];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+- (UIBarButtonItem *)creatBarButtonWithImageName:(NSString *)imageName Tag:(NSInteger)tag
+{
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:imageName]
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(barButtonItemClick:)];
+    item.tag = tag;
+    return item;
+}
+
+- (void)barButtonItemClick:(UIBarButtonItem *)sender
+{
+    if (sender.tag == 100) {
+        NSLog(@"100");
+    }else if(sender.tag == 200){
+        NSLog(@"200");
+    }
+    
+}
+
 - (void)setupTableView
 {
-    
     //    __weak typeof(self) weakSelf = self;
     TableViewCellConfigureBlock configureCell = ^(CDHeadMenuCell *cell, NSArray<Navs *> *navs) {
         //        [cell configureForNavs:navs];

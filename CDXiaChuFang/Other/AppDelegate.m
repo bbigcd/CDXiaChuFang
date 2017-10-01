@@ -20,6 +20,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[CDTabBarViewController alloc] init];
     [self.window makeKeyAndVisible];
+    
+    // iOS8注册本地通知类型 10.0以上推送不支持
+    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    
+    
     return YES;
 }
 
