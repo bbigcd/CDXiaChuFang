@@ -10,7 +10,6 @@
 #import "CDMainVerticalButton.h"
 #import "CDMainModel.h"
 #import <UIButton+WebCache.h>
-#import "NSDate+CDDate.h"
 
 @interface CDMainHeadView()<UIScrollViewDelegate>
 
