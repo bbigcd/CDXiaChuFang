@@ -26,7 +26,6 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIPageControl *pageControl;
 
-
 @end
 
 @implementation CDMainHeadView
@@ -58,6 +57,7 @@
     [self thisWeekCookBtn];
     [self fllowAttentionBtn];
     [self scrollView];
+    [self pageControl];
 }
 
 - (void)buttonClickAction:(UIButton *)sender
@@ -281,7 +281,14 @@
 {
     if (!_pageControl) {
         _pageControl = [[UIPageControl alloc] init];
-        
+        _pageControl.userInteractionEnabled = NO;
+        _pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+        _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+        [self addSubview:_pageControl];
+        [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self);
+            make.bottom.equalTo(_scrollView.mas_bottom).offset(-28);
+        }];
     }
     return _pageControl;
 }
@@ -289,6 +296,7 @@
 #pragma mark - scrollViewItem -
 - (void)setupScrollViewItme:(NSArray<Events *> *)events
 {
+    _pageControl.numberOfPages = events.count;
     NSArray *titles = @[@"- 早餐 -", @"- 午餐 -", @"- 晚餐 -"];
     NSArray *imageNames = @[@"themeSmallPicForBreakfast_375x100_",
                             @"themeSmallPicForLaunch_375x100_",
@@ -314,10 +322,31 @@
 //        [btn sd_setImageWithURL:[NSURL URLWithString:events[i].kId] forState:UIControlStateNormal];
         btn.backgroundColor = [UIColor brownColor];
         [_scrollView addSubview:btn];
-        btn.alpha = 0.5f;
+        btn.alpha = 0.2f;
         CGFloat btnX = (_scrollView.bounds.size.width - 96) + _scrollView.bounds.size.width * i;
         btn.frame = (CGRect){btnX, (_scrollView.height - 96) / 2, 80, 80};
     }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.scrollView setContentOffset:CGPointMake((events.count - 1) * self.scrollView.width, 0) animated:YES];
+    });
+}
+
+#pragma mark - UIScrolViewDelegate -
+/**
+ 以下两个方法一起使用才能，才能实现自动跳转和手动跳转都触发pageControll的改变
+
+ @param scrollView 滚动视图
+ */
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    NSInteger index = scrollView.contentOffset.x / scrollView.width;
+    _pageControl.currentPage = index;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self scrollViewDidEndScrollingAnimation:scrollView];
 }
 
 @end
