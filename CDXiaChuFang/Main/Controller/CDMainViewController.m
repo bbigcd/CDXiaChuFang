@@ -67,6 +67,7 @@ static NSString *const MainTableID = @"MainTableID";
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self network];
+        [self netWork2];
         [self setupTableView];
         [self.tableView.mj_header endRefreshing];
     }];
@@ -137,6 +138,31 @@ static NSString *const MainTableID = @"MainTableID";
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.headView setContentWithItem:self.model.content];
         });
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
+- (void)netWork2
+{
+    
+    NSString *url = @"http://api.xiachufang.com/v2/issues/list.json";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"_ts"] = @"1473090255.173335";
+    params[@"api_key"] = @"07397197043fafe11ce5c65c10febf84";
+    params[@"api_sign"] = @"0d94e0c5bdf1f8aaf190f37f40f1af7b";
+    params[@"cursor"] = @"";
+    params[@"location_code"] = @"156440300000000";
+    params[@"nonce"] = @"BDEFB717-254E-4236-8046-5C06F9D9C770";
+    params[@"origin"] = @"iphone";
+    params[@"size"] = @"2";
+    params[@"sk"] = @"xtMHPgLaSnWmBJulQ-zPOQ";
+    params[@"timezone"] = @"Asia/Shanghai";
+    params[@"version"] = @"5.8.2";
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
