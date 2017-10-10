@@ -32,6 +32,7 @@
 		545176CC1F44994F006523D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 545176CB1F44994F006523D6 /* Assets.xcassets */; };
 		545176D51F449A76006523D6 /* CDTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 545176D41F449A76006523D6 /* CDTabBarViewController.m */; };
 		545176D81F45E35F006523D6 /* CDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 545176D71F45E35F006523D6 /* CDNavigationViewController.m */; };
+		545D2E391F8D19A900269531 /* CDMainSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 545D2E381F8D19A900269531 /* CDMainSearchBar.m */; };
 		8D8206669FC602126A2FF224 /* libPods-CDXiaChuFang.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD1440FC21846E47E25951D /* libPods-CDXiaChuFang.a */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,8 @@
 		545176D41F449A76006523D6 /* CDTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTabBarViewController.m; sourceTree = "<group>"; };
 		545176D61F45E35F006523D6 /* CDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDNavigationViewController.h; sourceTree = "<group>"; };
 		545176D71F45E35F006523D6 /* CDNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDNavigationViewController.m; sourceTree = "<group>"; };
+		545D2E371F8D19A900269531 /* CDMainSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDMainSearchBar.h; sourceTree = "<group>"; };
+		545D2E381F8D19A900269531 /* CDMainSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDMainSearchBar.m; sourceTree = "<group>"; };
 		6DD1440FC21846E47E25951D /* libPods-CDXiaChuFang.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CDXiaChuFang.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C8AAAB2728D6AC638D525A /* Pods-CDXiaChuFang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDXiaChuFang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CDXiaChuFang/Pods-CDXiaChuFang.debug.xcconfig"; sourceTree = "<group>"; };
 		E0C750A88DE51948F05D8D8D /* Pods-CDXiaChuFang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDXiaChuFang.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDXiaChuFang/Pods-CDXiaChuFang.release.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +260,8 @@
 				54448F991F5AEDBE002EAA5C /* CDHeadMenuCell+ConfigureForMemuCell.m */,
 				542B44401F49D14D004A38BB /* CDMainHeadView.h */,
 				542B44411F49D14D004A38BB /* CDMainHeadView.m */,
+				545D2E371F8D19A900269531 /* CDMainSearchBar.h */,
+				545D2E381F8D19A900269531 /* CDMainSearchBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				5433901E1F5DA79B00E488E1 /* CDMeHeadView.m in Sources */,
 				545176AA1F4496BF006523D6 /* main.m in Sources */,
 				542B504B1F618D2600A5A8EC /* CDVerticalButton.m in Sources */,
+				545D2E391F8D19A900269531 /* CDMainSearchBar.m in Sources */,
 				54272BF11F66B63400458174 /* CDMessageView.m in Sources */,
 				542B44421F49D14D004A38BB /* CDMainHeadView.m in Sources */,
 				545176D51F449A76006523D6 /* CDTabBarViewController.m in Sources */,

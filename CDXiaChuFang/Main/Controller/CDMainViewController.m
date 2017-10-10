@@ -12,6 +12,7 @@
 #import <NSObject+YYModel.h>
 #import "CDMainDataSource.h"
 #import "CDHeadMenuCell.h"
+#import "CDMainSearchBar.h"
 #import "CDHeadMenuCell+ConfigureForMemuCell.h"
 
 @interface CDMainViewController ()
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) CDMainModel *model;
 @property (nonatomic, strong) CDMainDataSource *mainDataSource;
 @property (nonatomic, strong) CDMainHeadView *headView;
+@property (nonatomic, strong) CDMainSearchBar *searchBar;
 @end
 
 @implementation CDMainViewController
@@ -62,12 +64,13 @@ static NSString *const MainTableID = @"MainTableID";
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     [self setupBarButtonItem];
+    [self setupSearchBar];
     self.model = [[CDMainModel alloc] init];
     [self tableView];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self network];
-        [self netWork2];
+//        [self netWork2];
         [self setupTableView];
         [self.tableView.mj_header endRefreshing];
     }];
@@ -101,6 +104,12 @@ static NSString *const MainTableID = @"MainTableID";
         NSLog(@"200");
     }
     
+}
+
+- (void)setupSearchBar
+{
+    self.searchBar = [[CDMainSearchBar alloc] init];
+    self.navigationItem.titleView = self.searchBar;
 }
 
 - (void)setupTableView
@@ -196,6 +205,14 @@ static NSString *const MainTableID = @"MainTableID";
     }
 //    cell.textLabel.text = @"ceshi";
     return cell;
+}
+
+#pragma mark - TouchEvent -
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    [self.view endEditing:YES];
+    [self.searchBar endEditing:YES];
 }
 
 /*
