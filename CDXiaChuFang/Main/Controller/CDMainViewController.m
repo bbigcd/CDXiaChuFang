@@ -142,6 +142,7 @@ static NSString *const MainTableID = @"MainTableID";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         self.model = [CDMainModel yy_modelWithJSON:responseObject];
+        
         NSLog(@"%@",self.model.status);
         
         dispatch_async(dispatch_get_main_queue(), ^{
