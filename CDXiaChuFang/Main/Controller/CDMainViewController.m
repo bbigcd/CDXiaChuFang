@@ -149,7 +149,7 @@ static NSString *const MainTableID = @"MainTableID";
             [self.headView setContentWithItem:self.model.content];
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+//        坚持写下去吧，小伙子
     }];
 }
 
